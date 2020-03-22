@@ -22,7 +22,11 @@ cd <Your_Project_Name>
 yarn install
 ```
 
-Find and replace `aws-nestjs-starter` to your project name under `package.json`, `serverless.yml` and `.env` files.
+After that find and replace `aws-nestjs-starter` to your project name on the following files:
+
+- package.json
+- serverless.yml
+- .env
 
 ## Setup AWS Credentials
 
@@ -38,8 +42,8 @@ Find and replace `aws-nestjs-starter` to your project name under `package.json`,
 
 Install Serverless CLI
 
-```sh
-npm install -g serverless
+```bash
+$ npm install -g serverless
 ```
 
 Install AWS CLI
@@ -49,13 +53,9 @@ Install AWS CLI
 
 Config AWS CLI
 
-```sh
-aws configure
-```
+```bash
+$ aws configure
 
-Input:
-
-```sh
 AWS Access Key ID [****************TKYQ]:
 AWS Secret Access Key [****************yNO2]:
 Default region name [None]:
