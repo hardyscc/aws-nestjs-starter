@@ -1,0 +1,38 @@
+service:
+  name: aws-nestjs-starter
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    SERVICE: ${self:service}
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:${self:provider.region}:*:*
+
+plugins:
+  - serverless-plugin-typescript
+
+functions:
+  index:
+    handler: src/index.handler
+    events:
+      - http:
+          cors: true
+          path: '{proxy+}'
+          method: any
+
+resources:
+  - ${file(resources/dynamodb.yml)}
