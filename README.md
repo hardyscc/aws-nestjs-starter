@@ -122,5 +122,5 @@ query {
 
 ## Stay in touch
 
-- Author - [Hardys](hardyscc@gmail.com)
+- Author - [Hardys](mailto:hardyscc@gmail.com)
 - Twitter - [@hardyscchk](https://twitter.com/hardyscchk)
