@@ -1,13 +1,10 @@
 {
-  "separateMajorMinor": false,
-  "extends": [
-    ":preserveSemverRanges",
-    "group:all",
-    "schedule:monthly",
-    ":maintainLockFilesMonthly"
+  "semanticCommits": true,
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
   ],
-  "lockFileMaintenance": {
-    "extends": ["group:all"],
-    "commitMessageAction": "Update"
-  }
+  "extends": ["config:base"]
 }
