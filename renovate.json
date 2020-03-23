@@ -5,6 +5,6 @@
       "updateTypes": ["minor"],
       "extends": ["group:nestMonorepo"]
     }
-  ]
+  ],
   "extends": ["config:base"]
 }
