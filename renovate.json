@@ -3,8 +3,7 @@
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "extends": ["monorepo:nest"]
     }
-  ],
-  "extends": ["config:base"]
+  ]
 }
