@@ -1,0 +1,11 @@
+{
+  "timezone": "Asia/Hong_Kong",
+  "semanticCommits": true,
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "extends": ["config:base"]
+}
