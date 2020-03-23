@@ -44,7 +44,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@nestjs/cli": "6.14.2",
-    "@nestjs/schematics": "6.9.4",
+    "@nestjs/schematics": "7.0.0",
     "@nestjs/testing": "6.11.11",
     "@types/aws-lambda": "8.10.46",
     "@types/aws-serverless-express": "3.3.3",
