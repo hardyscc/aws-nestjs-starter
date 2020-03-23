@@ -2,8 +2,9 @@
   "semanticCommits": true,
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "extends": ["monorepo:nest"]
+      "updateTypes": ["minor"],
+      "extends": ["group:nestMonorepo"]
     }
   ]
+  "extends": ["config:base"]
 }
