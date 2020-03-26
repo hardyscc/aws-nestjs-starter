@@ -10,11 +10,13 @@ import { NotificationModule } from './notification/notification.module';
     GraphQLModule.forRoot({
       autoSchemaFile: true,
       playground: {
-        endpoint:
-          process.env.PLAYGOUND_ENDPOINT || `/${process.env.STAGE}/graphql`,
+        endpoint: process.env.IS_OFFLINE
+          ? '/graphql'
+          : `/${process.env.STAGE}/graphql`,
       },
     }),
     DynamooseModule.forRoot({
+      local: process.env.IS_OFFLINE === 'true',
       aws: { region: process.env.REGION },
       model: {
         create: false,

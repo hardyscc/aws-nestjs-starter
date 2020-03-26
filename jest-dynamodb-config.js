@@ -3,16 +3,25 @@ module.exports = async () => {
 
   await serverless.init();
   const service = await serverless.variables.populateService();
-  const resources = service.resources[0].Resources;
 
-  const tables = Object.keys(resources)
-    .map((name) => resources[name])
-    .filter((r) => r.Type === 'AWS::DynamoDB::Table')
-    .map((r) => r.Properties);
+  const extractTableResources = (r) =>
+    Object.keys(r)
+      .map((name) => r[name])
+      .filter((r) => r.Type === 'AWS::DynamoDB::Table')
+      .map((r) => r.Properties);
+
+  const tables = [];
+  if (Array.isArray(service.resources)) {
+    service.resources.map((r) => {
+      tables.push(...extractTableResources(r));
+    });
+  } else {
+    tables.push(...extractTableResources(service.resources));
+  }
 
   return {
     tables,
-    port: 8000,
+    port: 8001,
     installerConfig: {
       installPath: '.dynamodb',
     },
