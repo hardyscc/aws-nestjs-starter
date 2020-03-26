@@ -25,7 +25,9 @@ async function main() {
   // find all the files that match the given pattern
   const files = await glob.promise(matchPattern);
   await Promise.all(
-    files.map(async file => {
+    files.map(async (file) => {
+      console.log('detected:', file);
+
       // use the filename without extention as tablename
       const tableName = pascalCase(
         file

@@ -83,7 +83,7 @@ $ yarn start:watch
 # start local server connect to online AWS dynamodb
 $ yarn start:online
 
-# re-generate the resources/dynamodb.yml
+# re-generate the resources/dynamodb.yml from schemas
 $ yarn genres
 ```
 
