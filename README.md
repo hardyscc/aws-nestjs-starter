@@ -40,12 +40,6 @@ After that find and replace `aws-nestjs-starter` to your project name on the fol
 
 ## Setup Workstation
 
-Install Serverless CLI
-
-```bash
-$ npm install -g serverless
-```
-
 Install AWS CLI
 
 - Windows: `choco install awscli`
@@ -68,17 +62,29 @@ Default output format [None]:
 
 ```bash
 # deploy to AWS
-$ sls deploy
+$ yarn deploy
 ```
 
 ## Local Offline Development
 
 ```bash
-# development
+# install dynamodb local
+$ yarn ddb:install
+
+# start dynamodb local
+$ yarn ddb:start
+
+# start local server
 $ yarn start
 
-# watch mode
-$ yarn start:dev
+# start local server in watch mode
+$ yarn start:watch
+
+# start local server connect to online AWS dynamodb
+$ yarn start:online
+
+# re-generate the resources/dynamodb.yml from schemas
+$ yarn genres
 ```
 
 ## GraphQL Endpoint Test
