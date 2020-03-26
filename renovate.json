@@ -1,9 +1,10 @@
 {
-  "packageRules": [
-    {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ],
-  "extends": ["config:base"]
+  "timezone": "Asia/Hong_Kong",
+  "schedule": "before 5am every weekday",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": "after 10pm on sunday"
+  },
+  "semanticCommits": true,
+  "extends": ["config:base", ":disableMajorUpdates"]
 }
