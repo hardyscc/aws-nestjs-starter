@@ -24,6 +24,17 @@ provider:
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-dynamodb-local
+
+custom:
+  dynamodb:
+    stages:
+      - ${self:provider.stage}
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+      seed: false
 
 functions:
   index:
