@@ -6,5 +6,11 @@
     "schedule": "after 10pm on sunday"
   },
   "semanticCommits": true,
-  "extends": ["config:base", ":disableMajorUpdates"]
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
+  ],
+  "extends": ["config:base"]
 }
