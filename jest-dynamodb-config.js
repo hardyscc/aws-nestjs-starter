@@ -22,6 +22,7 @@ module.exports = async () => {
   return {
     tables,
     port: 8001,
+    options: ['-inMemory'],
     installerConfig: {
       installPath: '.dynamodb',
     },
