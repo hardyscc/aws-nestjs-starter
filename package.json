@@ -40,7 +40,7 @@
     "rimraf": "3.0.2",
     "rxjs": "6.5.4",
     "type-graphql": "0.17.6",
-    "uuid": "7.0.2"
+    "uuid": "7.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
