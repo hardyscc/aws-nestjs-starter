@@ -775,10 +775,10 @@
     tslib "1.11.1"
     uuid "7.0.2"
 
-"@nestjs/graphql@7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-7.1.4.tgz#3a57e20c390317d95bd25f5bc7d122b35f00c5c1"
-  integrity sha512-PXTkHsGmrVD1Kt/5O4W2B5EaPZdwNdwd2Zmn0jbjTAsLR35AOXrv6t/NQbctgaIFP8eziOu8/HwxakE3T3HbRA==
+"@nestjs/graphql@7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-7.1.5.tgz#303ef4cfd4163106129244c167d9b1385631d71a"
+  integrity sha512-GYVuZLT7YWi4ajsXBkbtHTkINMj/+pgZouwgWBkV7dEGSbPhJ8fnRkkeUHos9RFwiveODyEywhZax5AmTWoNug==
   dependencies:
     chokidar "3.3.1"
     fast-glob "3.2.2"
