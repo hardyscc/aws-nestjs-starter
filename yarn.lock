@@ -1130,10 +1130,15 @@
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
   integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
 
-"@types/aws-lambda@*", "@types/aws-lambda@8.10.46":
+"@types/aws-lambda@*":
   version "8.10.46"
   resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.46.tgz#3246348cdc15921bd065966109fc1c6f6d5cfd96"
   integrity sha512-88E4Hlypo3AE40wslm7N4n09lCIJwgYJm5wsaA3/Vib1xqjC/ANePTaPRpPdj9NzBSpw7Tgon58qGMYEArx4oA==
+
+"@types/aws-lambda@8.10.47":
+  version "8.10.47"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.47.tgz#9ec9e730e78d1f3180be37cf55ab0815b96b225d"
+  integrity sha512-FIZjS1alDbH7qFpJxghmyS2g7h+DJjBj6Qhf2F4Nkz4LR+alTSvThQEAR2j9yRt7qlxDDxK/EagXDCURRSxo8A==
 
 "@types/aws-serverless-express@3.3.3":
   version "3.3.3"
