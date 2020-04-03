@@ -6,11 +6,6 @@
     "schedule": "after 10pm on sunday"
   },
   "semanticCommits": true,
-  "packageRules": [
-    {
-      "depTypeList": ["devDependencies"],
-      "automerge": true
-    }
-  ],
+  "automerge": true,
   "extends": ["config:base"]
 }
