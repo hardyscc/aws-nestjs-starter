@@ -19,7 +19,7 @@ A starter project that makes creating a deployable AWS Serverless project extrem
 git clone https://github.com/hardyscc/aws-nestjs-starter.git <Your_Project_Name>
 cd <Your_Project_Name>
 
-yarn install
+npm install
 ```
 
 After that find and replace `aws-nestjs-starter` to your project name on the following files:
@@ -62,29 +62,29 @@ Default output format [None]:
 
 ```bash
 # deploy to AWS
-$ yarn deploy
+$ npm run deploy
 ```
 
 ## Local Offline Development
 
 ```bash
 # install dynamodb local
-$ yarn ddb:install
+$ npm run ddb:install
 
 # start dynamodb local
-$ yarn ddb:start
+$ npm run ddb:start
 
 # start local server
-$ yarn start
+$ npm run start
 
 # start local server in watch mode
-$ yarn start:watch
+$ npm run start:watch
 
 # start local server connect to online AWS dynamodb
-$ yarn start:online
+$ npm run start:online
 
 # re-generate the resources/dynamodb.yml from schemas
-$ yarn genres
+$ npm run genres
 ```
 
 ## GraphQL Endpoint Test
