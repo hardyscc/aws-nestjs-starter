@@ -7,17 +7,17 @@ import { NotificationService } from '../service/notification.service';
 export class NotificationResolver {
   constructor(private readonly notificationService: NotificationService) {}
 
-  @Mutation(() => Notification)
+  @Mutation(/* istanbul ignore next */ () => Notification)
   createNotification(@Args('input') input: CreateNotificationInput) {
     return this.notificationService.create(input);
   }
 
-  @Query(() => [Notification])
+  @Query(/* istanbul ignore next */ () => [Notification])
   notification(@Args('userId') userId: string) {
     return this.notificationService.findByUserId(userId);
   }
 
-  @Query(() => [Notification])
+  @Query(/* istanbul ignore next */ () => [Notification])
   notificationByTarget(@Args('targetId') targetId: string) {
     return this.notificationService.findByTargetId(targetId);
   }

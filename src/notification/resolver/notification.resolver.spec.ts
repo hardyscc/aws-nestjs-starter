@@ -1,3 +1,4 @@
+import { GraphQLModule } from '@nestjs/graphql';
 import { Test, TestingModule } from '@nestjs/testing';
 import { DynamooseModule } from 'nestjs-dynamoose';
 import { NotificationSchema } from '../schema/notification.schema';
@@ -9,12 +10,35 @@ const dynamooseOptions = {
   aws: { region: 'local' },
 };
 
+async function createNotificationWithTest(
+  resolver: NotificationResolver,
+  targetId: string,
+  userId: string,
+  content: string,
+) {
+  const createResult = await resolver.createNotification({
+    targetId,
+    userId,
+    content,
+  });
+  expect(createResult).toMatchObject({
+    targetId,
+    userId,
+    content,
+    status: 'Active',
+  });
+  expect(createResult.id).toBeDefined();
+}
+
 describe('NotificationResolver', () => {
   let resolver: NotificationResolver;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
+        GraphQLModule.forRoot({
+          autoSchemaFile: true,
+        }),
         DynamooseModule.forRoot(dynamooseOptions),
         DynamooseModule.forFeature([
           {
@@ -29,21 +53,14 @@ describe('NotificationResolver', () => {
     resolver = module.get<NotificationResolver>(NotificationResolver);
   });
 
-  it('create notification', async () => {
+  it('success case', async () => {
     expect(resolver).toBeDefined();
 
-    const result = await resolver.createNotification({
-      targetId: 'device1',
-      userId: 'tommy',
-      content: 'Message',
-    });
-
-    expect(result).toMatchObject({
-      targetId: 'device1',
-      userId: 'tommy',
-      content: 'Message',
-      status: 'Active',
-    });
-    expect(result.id).toBeDefined();
+    await createNotificationWithTest(resolver, 'device1', 'hardys', 'Hello');
+    await createNotificationWithTest(resolver, 'device2', 'hardys', 'Hello');
+    expect(await resolver.notification('mary')).toHaveLength(0);
+    expect(await resolver.notification('hardys')).toHaveLength(2);
+    expect(await resolver.notificationByTarget('device1')).toHaveLength(1);
+    expect(await resolver.notificationByTarget('iphone')).toHaveLength(0);
   });
 });
