@@ -5,7 +5,7 @@ export class Notification {
   static ACTIVE = 'Active';
   static DELETED = 'Deleted';
 
-  @Field(() => ID)
+  @Field(/* istanbul ignore next */ () => ID)
   id: string;
 
   @Field()
