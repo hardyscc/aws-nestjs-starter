@@ -75,7 +75,7 @@ $ npm run ddb:install
 $ npm run ddb:start
 
 # start local server
-$ npm run start
+$ npm start
 
 # start local server in watch mode
 $ npm run start:watch
@@ -85,6 +85,16 @@ $ npm run start:online
 
 # re-generate the resources/dynamodb.yml from schemas
 $ npm run genres
+```
+
+## Unit Testing
+
+```bash
+# run unit test
+$ npm test
+
+# run unit test with coverage
+$ npm run test:cov
 ```
 
 ## GraphQL Endpoint Test
