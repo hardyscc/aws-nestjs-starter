@@ -100,7 +100,7 @@ $ npm run test:cov
 ## GraphQL Endpoint Test
 
 - local: http://localhost:3000/graphql
-- AWS: https://<your_aws_deployment_id>.execute-api.us-east-1.amazonaws.com/dev/graphql
+- AWS: https://<your_aws_deployment_id>.execute-api.<region>.amazonaws.com/dev/graphql
 
 ```graphql
 mutation {
@@ -127,6 +127,21 @@ query {
 ```graphql
 query {
   notificationByTarget(targetId: "device1") {
+    id
+    targetId
+    userId
+    content
+    createAt
+  }
+}
+```
+
+```graphql
+mutation {
+  updateNotification(
+    id: "1ca7726e-0af8-4ff1-8ef1-4eae97377162"
+    input: { content: "Hi" }
+  ) {
     id
     targetId
     userId

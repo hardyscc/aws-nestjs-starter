@@ -6,21 +6,19 @@ Resources:
       TableName: '${self:service}-${self:provider.stage}-Notification'
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
-        - AttributeName: targetId
+        - AttributeName: id
           AttributeType: S
-        - AttributeName: createAt
+        - AttributeName: targetId
           AttributeType: S
         - AttributeName: userId
           AttributeType: S
         - AttributeName: status
           AttributeType: S
       KeySchema:
-        - AttributeName: targetId
+        - AttributeName: id
           KeyType: HASH
-        - AttributeName: createAt
-          KeyType: RANGE
-      LocalSecondaryIndexes:
-        - IndexName: targetIdLocalIndex
+      GlobalSecondaryIndexes:
+        - IndexName: targetIdGlobalIndex
           KeySchema:
             - AttributeName: targetId
               KeyType: HASH
@@ -28,7 +26,6 @@ Resources:
               KeyType: RANGE
           Projection:
             ProjectionType: ALL
-      GlobalSecondaryIndexes:
         - IndexName: userIdGlobalIndex
           KeySchema:
             - AttributeName: userId

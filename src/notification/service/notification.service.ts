@@ -2,13 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import * as uuid from 'uuid';
 import { CreateNotificationInput } from '../model/create-notification.input';
-import { Notification } from '../model/notification.entity';
+import { Notification, NotificationKey } from '../model/notification.model';
+import { UpdateNotificationInput } from '../model/update-notification.input';
 
 @Injectable()
 export class NotificationService {
   constructor(
     @InjectModel('Notification')
-    private model: Model<Notification, string>,
+    private model: Model<Notification, NotificationKey>,
   ) {}
 
   create(input: CreateNotificationInput) {
@@ -20,10 +21,14 @@ export class NotificationService {
     });
   }
 
+  update(key: NotificationKey, input: UpdateNotificationInput) {
+    return this.model.update(key, input);
+  }
+
   findByTargetId(targetId: string) {
     return this.model
       .query()
-      .using('targetIdLocalIndex')
+      .using('targetIdGlobalIndex')
       .where('targetId')
       .eq(targetId)
       .where('status')

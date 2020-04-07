@@ -1,5 +1,9 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
+export type NotificationKey = {
+  id: string;
+};
+
 @ObjectType()
 export class Notification {
   static ACTIVE = 'Active';

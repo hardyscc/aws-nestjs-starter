@@ -2,12 +2,15 @@ import { Schema } from 'dynamoose';
 import { SchemaAttributes } from 'nestjs-dynamoose';
 
 const schemaAttributes: SchemaAttributes = {
-  id: String,
-  targetId: {
+  id: {
     type: String,
     hashKey: true,
+  },
+  targetId: {
+    type: String,
     index: {
-      name: 'targetIdLocalIndex',
+      name: 'targetIdGlobalIndex',
+      global: true,
       rangeKey: 'status',
     },
   },
@@ -25,7 +28,6 @@ const schemaAttributes: SchemaAttributes = {
   },
   createAt: {
     type: String,
-    rangeKey: true,
   },
 };
 
