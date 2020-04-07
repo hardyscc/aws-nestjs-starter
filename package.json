@@ -30,7 +30,7 @@
     "@nestjs/core": "7.0.7",
     "@nestjs/graphql": "7.2.1",
     "@nestjs/platform-express": "7.0.7",
-    "apollo-server-express": "2.11.0",
+    "apollo-server-express": "2.12.0",
     "aws-serverless-express": "3.3.8",
     "dynamoose": "2.0.0-beta.8",
     "graphql": "14.6.0",
