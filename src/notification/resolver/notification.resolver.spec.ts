@@ -58,11 +58,13 @@ describe('NotificationResolver', () => {
 
     await createNotificationWithTest(resolver, 'device1', 'hardys', 'Hello');
     await createNotificationWithTest(resolver, 'device2', 'hardys', 'Hello');
-    expect(await resolver.notification('mary')).toHaveLength(0);
-    expect(await resolver.notification('hardys')).toHaveLength(2);
-    expect(await resolver.notificationByTarget('iphone')).toHaveLength(0);
+    await createNotificationWithTest(resolver, 'device3', 'timmy', 'Hello');
 
-    let notifications = await resolver.notificationByTarget('device1');
+    expect(await resolver.notificationByUserId('mary')).toHaveLength(0);
+    expect(await resolver.notificationByUserId('hardys')).toHaveLength(2);
+    expect(await resolver.notificationByTargetId('iphone')).toHaveLength(0);
+
+    let notifications = await resolver.notificationByTargetId('device1');
     expect(notifications).toHaveLength(1);
     expect(notifications[0].content).toBe('Hello');
 
@@ -72,8 +74,10 @@ describe('NotificationResolver', () => {
     expect(updated).toBeDefined();
     expect(updated.content).toBe('World');
 
-    notifications = await resolver.notificationByTarget('device1');
+    notifications = await resolver.notificationByTargetId('device1');
     expect(notifications).toHaveLength(1);
     expect(notifications[0].content).toBe('World');
+
+    expect(await resolver.notification()).toHaveLength(3);
   });
 });

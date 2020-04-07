@@ -22,12 +22,17 @@ export class NotificationResolver {
   }
 
   @Query(/* istanbul ignore next */ () => [Notification])
-  notification(@Args('userId') userId: string) {
+  notification() {
+    return this.notificationService.find();
+  }
+
+  @Query(/* istanbul ignore next */ () => [Notification])
+  notificationByUserId(@Args('userId') userId: string) {
     return this.notificationService.findByUserId(userId);
   }
 
   @Query(/* istanbul ignore next */ () => [Notification])
-  notificationByTarget(@Args('targetId') targetId: string) {
+  notificationByTargetId(@Args('targetId') targetId: string) {
     return this.notificationService.findByTargetId(targetId);
   }
 }
