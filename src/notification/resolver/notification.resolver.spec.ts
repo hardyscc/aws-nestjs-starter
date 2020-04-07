@@ -60,7 +60,20 @@ describe('NotificationResolver', () => {
     await createNotificationWithTest(resolver, 'device2', 'hardys', 'Hello');
     expect(await resolver.notification('mary')).toHaveLength(0);
     expect(await resolver.notification('hardys')).toHaveLength(2);
-    expect(await resolver.notificationByTarget('device1')).toHaveLength(1);
     expect(await resolver.notificationByTarget('iphone')).toHaveLength(0);
+
+    let notifications = await resolver.notificationByTarget('device1');
+    expect(notifications).toHaveLength(1);
+    expect(notifications[0].content).toBe('Hello');
+
+    const updated = await resolver.updateNotification(notifications[0].id, {
+      content: 'World',
+    });
+    expect(updated).toBeDefined();
+    expect(updated.content).toBe('World');
+
+    notifications = await resolver.notificationByTarget('device1');
+    expect(notifications).toHaveLength(1);
+    expect(notifications[0].content).toBe('World');
   });
 });
