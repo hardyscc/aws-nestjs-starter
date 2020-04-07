@@ -25,6 +25,10 @@ export class NotificationService {
     return this.model.update(key, input);
   }
 
+  find() {
+    return this.model.scan().exec();
+  }
+
   findByTargetId(targetId: string) {
     return this.model
       .query()

@@ -114,7 +114,7 @@ mutation {
 
 ```graphql
 query {
-  notification(userId: "user1") {
+  notification {
     id
     targetId
     userId
@@ -126,7 +126,19 @@ query {
 
 ```graphql
 query {
-  notificationByTarget(targetId: "device1") {
+  notificationByUserId(userId: "user1") {
+    id
+    targetId
+    userId
+    content
+    createAt
+  }
+}
+```
+
+```graphql
+query {
+  notificationByTargetId(targetId: "device1") {
     id
     targetId
     userId
