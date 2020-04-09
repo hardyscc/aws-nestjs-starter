@@ -67,7 +67,7 @@
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-import": "2.20.2",
     "glob-promise": "3.4.0",
-    "husky": "4.2.3",
+    "husky": "4.2.4",
     "jest": "25.3.0",
     "js-yaml": "3.13.1",
     "lint-staged": "10.1.3",
