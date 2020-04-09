@@ -22,7 +22,14 @@ export class NotificationResolver {
   }
 
   @Query(/* istanbul ignore next */ () => [Notification])
-  notification() {
+  notification(
+    @Args('id', { type: /* istanbul ignore next */ () => ID }) id: string,
+  ) {
+    return this.notificationService.findOne({ id });
+  }
+
+  @Query(/* istanbul ignore next */ () => [Notification])
+  allNotification() {
     return this.notificationService.find();
   }
 
