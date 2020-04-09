@@ -56,28 +56,34 @@ describe('NotificationResolver', () => {
   it('success case', async () => {
     expect(resolver).toBeDefined();
 
+    // create three notification records
     await createNotificationWithTest(resolver, 'device1', 'hardys', 'Hello');
     await createNotificationWithTest(resolver, 'device2', 'hardys', 'Hello');
     await createNotificationWithTest(resolver, 'device3', 'timmy', 'Hello');
 
+    // test findByUserId and findByTargetId
     expect(await resolver.notificationByUserId('mary')).toHaveLength(0);
     expect(await resolver.notificationByUserId('hardys')).toHaveLength(2);
     expect(await resolver.notificationByTargetId('iphone')).toHaveLength(0);
 
-    let notifications = await resolver.notificationByTargetId('device1');
+    // find a single record
+    const notifications = await resolver.notificationByTargetId('device1');
     expect(notifications).toHaveLength(1);
     expect(notifications[0].content).toBe('Hello');
 
+    // test update
     const updated = await resolver.updateNotification(notifications[0].id, {
       content: 'World',
     });
     expect(updated).toBeDefined();
     expect(updated.content).toBe('World');
 
-    notifications = await resolver.notificationByTargetId('device1');
-    expect(notifications).toHaveLength(1);
-    expect(notifications[0].content).toBe('World');
+    // test findOne
+    const notification = await resolver.notification(notifications[0].id);
+    expect(notification).toBeDefined();
+    expect(notification.id).toBe(notifications[0].id);
 
-    expect(await resolver.notification()).toHaveLength(3);
+    // test findAll
+    expect(await resolver.allNotification()).toHaveLength(3);
   });
 });

@@ -25,6 +25,10 @@ export class NotificationService {
     return this.model.update(key, input);
   }
 
+  findOne(key: NotificationKey) {
+    return this.model.get(key);
+  }
+
   find() {
     return this.model.scan().exec();
   }
