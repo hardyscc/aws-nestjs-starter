@@ -36,7 +36,6 @@ export class NotificationService {
   findByTargetId(targetId: string) {
     return this.model
       .query()
-      .using('targetIdGlobalIndex')
       .where('targetId')
       .eq(targetId)
       .where('status')
@@ -47,7 +46,6 @@ export class NotificationService {
   findByUserId(userId: string) {
     return this.model
       .query()
-      .using('userIdGlobalIndex')
       .where('userId')
       .eq(userId)
       .where('status')
