@@ -22,7 +22,9 @@ const schemaAttributes: SchemaAttributes = {
       rangeKey: 'status',
     },
   },
-  content: String,
+  content: {
+    type: String,
+  },
   status: {
     type: String,
   },
