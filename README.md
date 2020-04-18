@@ -114,7 +114,7 @@ mutation {
 
 ```graphql
 query {
-  notification {
+  allNotification {
     id
     targetId
     userId
