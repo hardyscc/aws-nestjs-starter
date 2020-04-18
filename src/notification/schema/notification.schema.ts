@@ -9,7 +9,6 @@ const schemaAttributes: SchemaAttributes = {
   targetId: {
     type: String,
     index: {
-      name: 'targetIdGlobalIndex',
       global: true,
       rangeKey: 'status',
     },
@@ -17,7 +16,6 @@ const schemaAttributes: SchemaAttributes = {
   userId: {
     type: String,
     index: {
-      name: 'userIdGlobalIndex',
       global: true,
       rangeKey: 'status',
     },

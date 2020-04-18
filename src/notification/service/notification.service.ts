@@ -35,8 +35,7 @@ export class NotificationService {
 
   findByTargetId(targetId: string) {
     return this.model
-      .query()
-      .where('targetId')
+      .query('targetId')
       .eq(targetId)
       .where('status')
       .eq(Notification.ACTIVE)
@@ -45,8 +44,7 @@ export class NotificationService {
 
   findByUserId(userId: string) {
     return this.model
-      .query()
-      .where('userId')
+      .query('userId')
       .eq(userId)
       .where('status')
       .eq(Notification.ACTIVE)
