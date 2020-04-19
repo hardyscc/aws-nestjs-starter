@@ -100,7 +100,7 @@ $ npm run test:cov
 ## GraphQL Endpoint Test
 
 - local: http://localhost:3000/graphql
-- AWS: https://<your_aws_deployment_id>.execute-api.<region>.amazonaws.com/dev/graphql
+- AWS: https://<your_aws_deployment_id>.execute-api.<your_aws_region>.amazonaws.com/dev/graphql
 
 ```graphql
 mutation {
