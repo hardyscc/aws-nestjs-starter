@@ -6,5 +6,5 @@
     }
   ],
   "automerge": true,
-  "extends": ["config:base", "group:nestjs-dynamoose"]
+  "extends": ["config:base"]
 }
