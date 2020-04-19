@@ -2,7 +2,7 @@
   "packageRules": [
     {
       "packageNames": ["nestjs-dynamoose", "dynamoose"],
-      "groupName": "nestjs-dynamoose"
+      "groupName": "nestjs-dynamoose packages"
     }
   ],
   "automerge": true,
