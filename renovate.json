@@ -1,4 +1,10 @@
 {
+  "packageRules": [
+    {
+      "packageNames": ["nestjs-dynamoose", "dynamoose"],
+      "groupName": "nestjs-dynamoose packages"
+    }
+  ],
   "automerge": true,
   "extends": ["config:base"]
 }
