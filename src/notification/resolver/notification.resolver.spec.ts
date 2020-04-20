@@ -8,7 +8,6 @@ import { NotificationResolver } from './notification.resolver';
 const dynamooseOptions = {
   local: 'http://localhost:8001',
   aws: { region: 'local' },
-  model: { create: false },
 };
 
 async function createNotificationWithTest(
