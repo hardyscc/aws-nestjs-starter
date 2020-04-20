@@ -1,14 +1,10 @@
+import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Test, TestingModule } from '@nestjs/testing';
 import { DynamooseModule } from 'nestjs-dynamoose';
 import { NotificationSchema } from '../schema/notification.schema';
 import { NotificationService } from '../service/notification.service';
 import { NotificationResolver } from './notification.resolver';
-
-const dynamooseOptions = {
-  local: 'http://localhost:8001',
-  aws: { region: 'local' },
-};
 
 async function createNotificationWithTest(
   resolver: NotificationResolver,
@@ -36,10 +32,18 @@ describe('NotificationResolver', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
+        ConfigModule.forRoot(),
         GraphQLModule.forRoot({
           autoSchemaFile: true,
         }),
-        DynamooseModule.forRoot(dynamooseOptions),
+        DynamooseModule.forRoot({
+          local: 'http://localhost:8001',
+          aws: { region: 'local' },
+          model: {
+            create: false,
+            prefix: `${process.env.SERVICE}-${process.env.ENV}-`,
+          },
+        }),
         DynamooseModule.forFeature([
           {
             name: 'Notification',
