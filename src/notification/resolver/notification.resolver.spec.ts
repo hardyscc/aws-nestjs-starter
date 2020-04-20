@@ -41,7 +41,7 @@ describe('NotificationResolver', () => {
           aws: { region: 'local' },
           model: {
             create: false,
-            prefix: `${process.env.SERVICE}-${process.env.ENV}-`,
+            prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
           },
         }),
         DynamooseModule.forFeature([
