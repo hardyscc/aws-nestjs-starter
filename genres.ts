@@ -44,7 +44,7 @@ async function main() {
 
       // make sure it is a Schema class
       if (schema.constructor.name === 'Schema') {
-        const model = new dynamoose.Model(tableName, schema, globalOptions);
+        const model = dynamoose.model(tableName, schema, globalOptions);
         // append to the resources object
         slsResources.Resources[`${tableName}DynamoDBTable`] = {
           Type: 'AWS::DynamoDB::Table',
