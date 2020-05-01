@@ -57,7 +57,7 @@
     "@types/js-yaml": "3.12.3",
     "@types/node": "13.13.4",
     "@types/serverless": "1.67.0",
-    "@types/supertest": "2.0.8",
+    "@types/supertest": "2.0.9",
     "@types/uuid": "7.0.3",
     "@typescript-eslint/eslint-plugin": "2.30.0",
     "@typescript-eslint/parser": "2.30.0",
