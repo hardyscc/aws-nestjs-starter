@@ -28,4 +28,3 @@ jobs:
       - run: npm run test:cov
         env:
           CI: true
-      - run: npm run package
