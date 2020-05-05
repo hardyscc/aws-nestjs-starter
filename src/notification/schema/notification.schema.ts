@@ -1,7 +1,6 @@
 import { Schema } from 'dynamoose';
-import { SchemaAttributes } from 'nestjs-dynamoose';
 
-const schemaAttributes: SchemaAttributes = {
+export const NotificationSchema = new Schema({
   id: {
     type: String,
     hashKey: true,
@@ -29,6 +28,4 @@ const schemaAttributes: SchemaAttributes = {
   createAt: {
     type: String,
   },
-};
-
-export const NotificationSchema = new Schema(schemaAttributes);
+});

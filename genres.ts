@@ -1,5 +1,7 @@
 import { pascalCase } from 'change-case';
 import * as dynamoose from 'dynamoose';
+import { ModelOptionsOptional } from 'dynamoose/dist/Model';
+import { Schema } from 'dynamoose/dist/Schema';
 import * as fs from 'fs';
 import * as glob from 'glob-promise';
 import * as yaml from 'js-yaml';
@@ -10,7 +12,7 @@ const matchPattern = args[1];
 const outputFile = args[2];
 
 const deletionPolicy = 'Delete';
-const globalOptions = {
+const globalOptions: ModelOptionsOptional = {
   throughput: 'ON_DEMAND',
   prefix: '${self:service}-${self:provider.stage}-',
 };
@@ -44,12 +46,16 @@ async function main() {
 
       // make sure it is a Schema class
       if (schema.constructor.name === 'Schema') {
-        const model = dynamoose.model(tableName, schema, globalOptions);
+        const model = dynamoose.model(
+          tableName,
+          schema as Schema,
+          globalOptions,
+        );
         // append to the resources object
         slsResources.Resources[`${tableName}DynamoDBTable`] = {
           Type: 'AWS::DynamoDB::Table',
           DeletionPolicy: deletionPolicy,
-          Properties: await model.table.create.request(),
+          Properties: await (model as any).table.create.request(),
         };
       }
     }),
