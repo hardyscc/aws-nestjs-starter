@@ -1,12 +1,6 @@
 {
   "timezone": "Asia/Hong_Kong",
   "schedule": "before 5am every weekday",
-  "packageRules": [
-    {
-      "packageNames": ["nestjs-dynamoose", "dynamoose"],
-      "groupName": "nestjs-dynamoose packages"
-    }
-  ],
-  "automerge": false,
+  "automerge": true,
   "extends": ["config:base"]
 }
