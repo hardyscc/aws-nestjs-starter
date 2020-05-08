@@ -13,6 +13,7 @@ export class Notification extends CreateNotificationInput {
   @Field(/* istanbul ignore next */ () => ID)
   id: string;
 
+  @Field()
   status: string;
 
   @Field()
