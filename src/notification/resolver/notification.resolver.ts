@@ -29,11 +29,6 @@ export class NotificationResolver {
   }
 
   @Query(/* istanbul ignore next */ () => [Notification])
-  allNotification() {
-    return this.notificationService.find();
-  }
-
-  @Query(/* istanbul ignore next */ () => [Notification])
   notificationByUserId(@Args('userId') userId: string) {
     return this.notificationService.findByUserId(userId);
   }

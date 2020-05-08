@@ -4,10 +4,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { DynamooseModule } from 'nestjs-dynamoose';
 import { NotificationSchema } from '../schema/notification.schema';
 import { NotificationService } from '../service/notification.service';
+import { NotificationController } from './notification.controller';
 import * as notificationJson from './notification.data.json';
-import { NotificationResolver } from './notification.resolver';
 
-let resolver: NotificationResolver;
+let controller: NotificationController;
 
 beforeAll(async () => {
   const module: TestingModule = await Test.createTestingModule({
@@ -31,20 +31,21 @@ beforeAll(async () => {
         },
       ]),
     ],
-    providers: [NotificationService, NotificationResolver],
+    providers: [NotificationService],
+    controllers: [NotificationController],
   }).compile();
 
-  resolver = module.get<NotificationResolver>(NotificationResolver);
+  controller = module.get<NotificationController>(NotificationController);
 });
 
-describe('Notification Resolver', () => {
+describe('Notification Controller', () => {
   beforeAll(async () => {
-    expect(resolver).toBeDefined();
+    expect(controller).toBeDefined();
 
     // create notification records
     await Promise.all(
       notificationJson.map(async (input) => {
-        const result = await resolver.createNotification(input);
+        const result = await controller.create(input);
         expect(result).toMatchObject({
           ...input,
           status: 'Active',
@@ -56,17 +57,17 @@ describe('Notification Resolver', () => {
 
   it('find by userId and targetId', async () => {
     // test findByUserId and findByTargetId
-    expect(await resolver.notificationByUserId('mary')).toHaveLength(0);
-    expect(await resolver.notificationByUserId('user11')).toHaveLength(2);
-    expect(await resolver.notificationByTargetId('iphone')).toHaveLength(0);
+    expect(await controller.find({ userId: 'mary' })).toHaveLength(0);
+    expect(await controller.find({ userId: 'user21' })).toHaveLength(2);
+    expect(await controller.find({ targetId: 'iphone' })).toHaveLength(0);
   });
 
   it('update content', async () => {
-    const notifications = await resolver.notificationByTargetId('device11');
+    const notifications = await controller.find({ targetId: 'device21' });
     expect(notifications).toHaveLength(1);
     expect(notifications[0].content).toBe('Hello');
 
-    const updated = await resolver.updateNotification(notifications[0].id, {
+    const updated = await controller.update(notifications[0].id, {
       content: 'World',
     });
     expect(updated).toBeDefined();
@@ -74,11 +75,19 @@ describe('Notification Resolver', () => {
   });
 
   it('find by id', async () => {
-    const notifications = await resolver.notificationByTargetId('device13');
+    const notifications = await controller.find({ targetId: 'device23' });
     expect(notifications).toHaveLength(1);
 
-    const notification = await resolver.notification(notifications[0].id);
+    const notification = await controller.findOne(notifications[0].id);
     expect(notification).toBeDefined();
     expect(notification.id).toBe(notifications[0].id);
+  });
+
+  it('find - bad request', async () => {
+    try {
+      await controller.find({});
+    } catch (e) {
+      expect(e).toMatchObject({ status: 400 });
+    }
   });
 });

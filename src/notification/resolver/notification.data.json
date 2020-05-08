@@ -1,17 +1,17 @@
 [
   {
-    "targetId": "device1",
-    "userId": "hardys",
+    "targetId": "device11",
+    "userId": "user11",
     "content": "Hello"
   },
   {
-    "targetId": "device2",
-    "userId": "hardys",
+    "targetId": "device12",
+    "userId": "user11",
     "content": "Hello"
   },
   {
-    "targetId": "device3",
-    "userId": "timmy",
+    "targetId": "device13",
+    "userId": "user12",
     "content": "Hello"
   }
 ]
