@@ -32,11 +32,12 @@ export class NotificationController {
   }
 
   @Get()
-  find(@Query() query: { userId?: string; targetId?: string }) {
-    if (query.userId) {
-      return this.notificationService.findByUserId(query.userId);
-    } else if (query.targetId) {
-      return this.notificationService.findByTargetId(query.targetId);
+  find(@Query() { userId, targetId }: { userId?: string; targetId?: string }) {
+    if (userId && !targetId) {
+      return this.notificationService.findByUserId(userId);
+    }
+    if (targetId && !userId) {
+      return this.notificationService.findByTargetId(targetId);
     }
     throw new BadRequestException();
   }

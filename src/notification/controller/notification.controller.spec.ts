@@ -55,7 +55,7 @@ describe('Notification Controller', () => {
     );
   });
 
-  it('find by userId and targetId', async () => {
+  it('find by userId or targetId', async () => {
     // test findByUserId and findByTargetId
     expect(await controller.find({ userId: 'mary' })).toHaveLength(0);
     expect(await controller.find({ userId: 'user21' })).toHaveLength(2);
@@ -83,7 +83,15 @@ describe('Notification Controller', () => {
     expect(notification.id).toBe(notifications[0].id);
   });
 
-  it('find - bad request', async () => {
+  it('find by userId and targetId (bad request)', async () => {
+    try {
+      await controller.find({ targetId: 'device21', userId: 'user21' });
+    } catch (e) {
+      expect(e).toMatchObject({ status: 400 });
+    }
+  });
+
+  it('find all (bad request)', async () => {
     try {
       await controller.find({});
     } catch (e) {

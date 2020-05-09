@@ -54,7 +54,7 @@ describe('Notification Resolver', () => {
     );
   });
 
-  it('find by userId and targetId', async () => {
+  it('find by userId or targetId', async () => {
     // test findByUserId and findByTargetId
     expect(await resolver.notificationByUserId('mary')).toHaveLength(0);
     expect(await resolver.notificationByUserId('user11')).toHaveLength(2);
