@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import * as uuid from 'uuid';
 import { CreateNotificationInput } from '../model/create-notification.input';
+import { NotificationStatus } from '../model/notification-status.enum';
 import { Notification, NotificationKey } from '../model/notification.model';
 import { UpdateNotificationInput } from '../model/update-notification.input';
 
@@ -16,7 +17,7 @@ export class NotificationService {
     return this.model.create({
       ...input,
       id: uuid.v4(),
-      status: Notification.ACTIVE,
+      status: NotificationStatus.Active,
       createAt: new Date().toISOString(),
     });
   }
@@ -34,7 +35,7 @@ export class NotificationService {
       .query('targetId')
       .eq(targetId)
       .where('status')
-      .eq(Notification.ACTIVE)
+      .eq(NotificationStatus.Active)
       .exec();
   }
 
@@ -43,7 +44,7 @@ export class NotificationService {
       .query('userId')
       .eq(userId)
       .where('status')
-      .eq(Notification.ACTIVE)
+      .eq(NotificationStatus.Active)
       .exec();
   }
 }

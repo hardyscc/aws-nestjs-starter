@@ -168,7 +168,7 @@ curl -X GET 'http://localhost:3000/notification?userId=user1'
 ```
 
 ```
-curl -X PUT 'http://localhost:3000/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
+curl -X PATCH 'http://localhost:3000/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
   -H 'Content-Type: application/json' \
   --data-raw '{ "content": "Hi" }'
 ```

@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { CreateNotificationInput } from './create-notification.input';
+import { NotificationStatus } from './notification-status.enum';
 
 export type NotificationKey = {
   id: string;
@@ -7,14 +8,11 @@ export type NotificationKey = {
 
 @ObjectType({ implements: CreateNotificationInput })
 export class Notification extends CreateNotificationInput {
-  static ACTIVE = 'Active';
-  static DELETED = 'Deleted';
-
   @Field(/* istanbul ignore next */ () => ID)
   id: string;
 
-  @Field()
-  status: string;
+  @Field(/* istanbul ignore next */ () => NotificationStatus)
+  status: NotificationStatus;
 
   @Field()
   createAt: string;

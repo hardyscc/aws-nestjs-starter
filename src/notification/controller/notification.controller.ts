@@ -4,8 +4,8 @@ import {
   Controller,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
   Query,
 } from '@nestjs/common';
 import { CreateNotificationInput } from '../model/create-notification.input';
@@ -21,7 +21,7 @@ export class NotificationController {
     return this.notificationService.create(body);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() body: UpdateNotificationInput) {
     return this.notificationService.update({ id }, body);
   }
