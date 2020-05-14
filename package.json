@@ -15,7 +15,7 @@
     "start:online": "cross-env IS_OFFLINE=false nest start",
     "deploy": "sls deploy --verbose",
     "package": "sls package",
-    "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "cross-env http_proxy= cross-env https_proxy= jest --verbose",
     "test:watch": "cross-env http_proxy= cross-env https_proxy= jest --verbose --watch",
     "test:cov": "cross-env http_proxy= cross-env https_proxy= jest --verbose --coverage",
@@ -23,7 +23,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "dbb:install": "sls dynamodb install",
     "dbb:start": "cross-env http_proxy= cross-env https_proxy= sls dynamodb start",
-    "genres": "ts-node genres.ts -- 'src/**/*.schema.ts' 'resources/dynamodb.yml'"
+    "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resources/dynamodb.yml\""
   },
   "dependencies": {
     "@nestjs/common": "7.0.11",
