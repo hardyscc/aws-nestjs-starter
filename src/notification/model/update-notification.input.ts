@@ -1,10 +1,11 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsEnum, IsIn } from 'class-validator';
+import { NotificationStatus } from './notification.enum';
 
 @InputType()
 export class UpdateNotificationInput {
-  @IsNotEmpty()
-  @IsString()
-  @Field()
-  content: string;
+  @IsIn([NotificationStatus.Deleted])
+  @IsEnum(NotificationStatus)
+  @Field(/* istanbul ignore next */ () => NotificationStatus)
+  status: NotificationStatus;
 }

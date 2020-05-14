@@ -2,6 +2,7 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Test, TestingModule } from '@nestjs/testing';
 import { DynamooseModule } from 'nestjs-dynamoose';
+import { NotificationStatus } from '../model/notification.enum';
 import { NotificationSchema } from '../schema/notification.schema';
 import { NotificationService } from '../service/notification.service';
 import { NotificationController } from './notification.controller';
@@ -68,10 +69,10 @@ describe('Notification Controller', () => {
     expect(notifications[0].content).toBe('Hello');
 
     const updated = await controller.update(notifications[0].id, {
-      content: 'World',
+      status: NotificationStatus.Deleted,
     });
     expect(updated).toBeDefined();
-    expect(updated.content).toBe('World');
+    expect(updated.status).toBe(NotificationStatus.Deleted);
   });
 
   it('find by id', async () => {

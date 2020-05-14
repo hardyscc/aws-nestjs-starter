@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { CreateNotificationInput } from './create-notification.input';
-import { NotificationStatus } from './notification-status.enum';
+import { NotificationStatus } from './notification.enum';
 
 export type NotificationKey = {
   id: string;

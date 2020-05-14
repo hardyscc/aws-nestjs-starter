@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import * as uuid from 'uuid';
 import { CreateNotificationInput } from '../model/create-notification.input';
-import { NotificationStatus } from '../model/notification-status.enum';
+import { NotificationStatus } from '../model/notification.enum';
 import { Notification, NotificationKey } from '../model/notification.model';
 import { UpdateNotificationInput } from '../model/update-notification.input';
 
