@@ -1,37 +1,14 @@
-import { ConfigModule } from '@nestjs/config';
-import { GraphQLModule } from '@nestjs/graphql';
 import { Test, TestingModule } from '@nestjs/testing';
-import { DynamooseModule } from 'nestjs-dynamoose';
 import { NotificationStatus } from '../model/notification.enum';
-import { NotificationSchema } from '../schema/notification.schema';
 import { NotificationService } from '../service/notification.service';
+import { NotificationTestImports } from '../test/notification-test.imports';
 import * as notificationJson from './notification.data.json';
 import { NotificationResolver } from './notification.resolver';
-
 let resolver: NotificationResolver;
 
 beforeAll(async () => {
   const module: TestingModule = await Test.createTestingModule({
-    imports: [
-      ConfigModule.forRoot(),
-      GraphQLModule.forRoot({
-        autoSchemaFile: true,
-      }),
-      DynamooseModule.forRoot({
-        local: 'http://localhost:8001',
-        aws: { region: 'local' },
-        model: {
-          create: false,
-          prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
-        },
-      }),
-      DynamooseModule.forFeature([
-        {
-          name: 'Notification',
-          schema: NotificationSchema,
-        },
-      ]),
-    ],
+    imports: NotificationTestImports,
     providers: [NotificationService, NotificationResolver],
   }).compile();
 
@@ -48,7 +25,7 @@ describe('Notification Resolver', () => {
         const result = await resolver.createNotification(input);
         expect(result).toMatchObject({
           ...input,
-          status: 'Active',
+          status: NotificationStatus.Active,
         });
         expect(result.id).toBeDefined();
       }),
@@ -62,10 +39,10 @@ describe('Notification Resolver', () => {
     expect(await resolver.notificationByTargetId('iphone')).toHaveLength(0);
   });
 
-  it('update content', async () => {
+  it('update status', async () => {
     const notifications = await resolver.notificationByTargetId('device11');
     expect(notifications).toHaveLength(1);
-    expect(notifications[0].content).toBe('Hello');
+    expect(notifications[0].status).toBe(NotificationStatus.Active);
 
     const updated = await resolver.updateNotification(notifications[0].id, {
       status: NotificationStatus.Deleted,
