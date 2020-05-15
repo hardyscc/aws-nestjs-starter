@@ -7,9 +7,8 @@ import * as glob from 'glob-promise';
 import * as yaml from 'js-yaml';
 import * as path from 'path';
 
-const args = process.argv.slice(2);
-const matchPattern = args[1];
-const outputFile = args[2];
+const matchPattern = process.argv[3];
+const outputFile = process.argv[4];
 
 const deletionPolicy = 'Delete';
 const globalOptions: ModelOptionsOptional = {
@@ -18,6 +17,11 @@ const globalOptions: ModelOptionsOptional = {
 };
 
 async function main() {
+  if (!matchPattern || !outputFile) {
+    console.log('missing required arguments.');
+    return;
+  }
+
   dynamoose.aws.sdk.config.update({
     region: 'any',
   });

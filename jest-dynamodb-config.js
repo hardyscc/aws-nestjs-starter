@@ -4,9 +4,9 @@ module.exports = async () => {
   await serverless.init();
   const service = await serverless.variables.populateService();
 
-  const extractTableResources = (r) =>
-    Object.keys(r)
-      .map((name) => r[name])
+  const extractTableResources = (res) =>
+    Object.keys(res)
+      .map((name) => res[name])
       .filter((r) => r.Type === 'AWS::DynamoDB::Table')
       .map((r) => r.Properties);
 
