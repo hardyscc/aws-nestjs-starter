@@ -7,8 +7,9 @@ import * as glob from 'glob-promise';
 import * as yaml from 'js-yaml';
 import * as path from 'path';
 
-const matchPattern = process.argv[3];
-const outputFile = process.argv[4];
+const args = process.argv.slice(2);
+const matchPattern = args[1];
+const outputFile = args[2];
 
 const deletionPolicy = 'Delete';
 const globalOptions: ModelOptionsOptional = {
