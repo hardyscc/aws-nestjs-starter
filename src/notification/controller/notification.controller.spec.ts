@@ -3,7 +3,7 @@ import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
 import { NotificationController } from './notification.controller';
-import * as notificationJson from './notification.data.json';
+import notificationJson from './notification.data.json';
 
 let controller: NotificationController;
 

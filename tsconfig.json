@@ -12,7 +12,8 @@
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
     "allowJs": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "dist"]
 }
