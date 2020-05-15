@@ -16,13 +16,13 @@
     "deploy": "sls deploy --verbose",
     "package": "sls package",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
-    "test": "cross-env http_proxy= cross-env https_proxy= jest --verbose",
-    "test:watch": "cross-env http_proxy= cross-env https_proxy= jest --verbose --watch",
-    "test:cov": "cross-env http_proxy= cross-env https_proxy= jest --verbose --coverage",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "test:cov": "jest --verbose --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "dbb:install": "sls dynamodb install",
-    "dbb:start": "cross-env http_proxy= cross-env https_proxy= sls dynamodb start",
+    "dbb:start": "sls dynamodb start",
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resources/dynamodb.yml\""
   },
   "dependencies": {
