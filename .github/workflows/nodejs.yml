@@ -31,7 +31,7 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.2
         with:
-          organization: ${{ GITHUB_ACTOR }}
+          organization: ${{ github.repository_owner }}
           projectKey: hardyscc_aws-nestjs-starter
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
