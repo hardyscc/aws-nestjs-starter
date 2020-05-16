@@ -3,9 +3,10 @@
 <p>
 <a href="https://github.com/hardyscc/aws-nestjs-starter/actions"><img src="https://github.com/hardyscc/aws-nestjs-starter/workflows/Node.js%20CI/badge.svg" alt="CI"></a>
 <a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=alert_status" alt="Alert Status"></a>
-<a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=coverage" alt="Coverage"></a>
-<a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=bugs" alt="Bugs"></a>
-<a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=code_smells" alt="Code Smells"></a>
+<a href="https://sonarcloud.io/component_measures?id=hardyscc_aws-nestjs-starter&metric=coverage&view=list"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=coverage" alt="Coverage"></a>
+<a href="https://sonarcloud.io/project/issues?id=hardyscc_aws-nestjs-starter&resolved=false"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=bugs" alt="Bugs"></a>
+<a href="https://sonarcloud.io/project/issues?id=hardyscc_aws-nestjs-starter&resolved=false"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=code_smells" alt="Code Smells"></a>
+<a href="https://github.com/hardyscc/aws-nestjs-starter/blob/master/LICENSE"><img src="https://img.shields.io/github/license/hardyscc/aws-nestjs-starter" alt="License"></a>
 <a href="https://twitter.com/hardyscchk"><img src="https://img.shields.io/twitter/follow/hardyscchk.svg?style=social&label=Follow"></a>
 </p>
 
