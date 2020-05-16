@@ -8,7 +8,6 @@
 <a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=bugs" alt="Bugs"></a>
 <a href="https://sonarcloud.io/dashboard?id=hardyscc_aws-nestjs-starter"><img src="https://sonarcloud.io/api/project_badges/measure?project=hardyscc_aws-nestjs-starter&metric=code_smells" alt="Code Smells"></a>
 <a href="https://twitter.com/hardyscchk"><img src="https://img.shields.io/twitter/follow/hardyscchk.svg?style=social&label=Follow"></a>
-
 </p>
 
 ## Description
