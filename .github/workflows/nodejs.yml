@@ -28,3 +28,5 @@ jobs:
       - run: npm run test:cov
         env:
           CI: true
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.2
