@@ -1,4 +1,4 @@
-# Serverless, AWS, NestJS, GraphQL and DynamoDB starter.
+# Serverless, AWS, NestJS, GraphQL and DynamoDB starter
 
 <p>
 <a href="https://github.com/hardyscc/aws-nestjs-starter/actions"><img src="https://github.com/hardyscc/aws-nestjs-starter/workflows/Node.js%20CI/badge.svg" alt="CI"></a>
