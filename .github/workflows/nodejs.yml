@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -33,3 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          node-version: 12.x
