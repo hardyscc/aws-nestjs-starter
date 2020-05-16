@@ -10,7 +10,7 @@ import { UpdateNotificationInput } from '../model/update-notification.input';
 export class NotificationService {
   constructor(
     @InjectModel('Notification')
-    private model: Model<Notification, NotificationKey>,
+    private readonly model: Model<Notification, NotificationKey>,
   ) {}
 
   create(input: CreateNotificationInput) {
