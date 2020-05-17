@@ -15,10 +15,21 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/notification (POST)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .post('/notification')
+      .send({
+        targetId: 'device1',
+        userId: 'user1',
+        content: 'Hello',
+      })
+      .expect(201);
+  });
+
+  it('/notification (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/notification?userId=dummy')
       .expect(200)
-      .expect('Hello World!');
+      .expect([]);
   });
 });

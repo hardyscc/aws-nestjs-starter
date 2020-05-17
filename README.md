@@ -107,6 +107,16 @@ $ npm test
 $ npm run test:cov
 ```
 
+## E2E Testing
+
+```bash
+# start dynamodb local
+$ npm run ddb:start
+
+# run unit test with coverage
+$ npm run test:e2e
+```
+
 ## GraphQL Endpoint Test
 
 - local: http://localhost:3000/graphql
