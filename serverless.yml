@@ -25,6 +25,7 @@ provider:
 plugins:
   - serverless-plugin-typescript
   - serverless-dynamodb-local
+  - serverless-offline
 
 custom:
   dynamodb:

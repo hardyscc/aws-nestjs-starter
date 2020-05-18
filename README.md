@@ -75,7 +75,23 @@ Default output format [None]:
 $ npm run deploy
 ```
 
-## Local Offline Development
+## Offline Development
+
+```bash
+# install dynamodb local
+$ npm run ddb:install
+
+# start serverless offline server
+$ npm run sls:start
+
+# start serverless offline connect to online online dynamodb
+$ npm run sls:online
+
+# re-generate the resources/dynamodb.yml from schemas
+$ npm run genres
+```
+
+## Local Development - (Optional)
 
 ```bash
 # install dynamodb local
@@ -90,7 +106,7 @@ $ npm start
 # start local server in watch mode
 $ npm run start:watch
 
-# start local server connect to online AWS dynamodb
+# start local server connect to online dynamodb
 $ npm run start:online
 
 # re-generate the resources/dynamodb.yml from schemas
@@ -119,6 +135,7 @@ $ npm run test:e2e
 
 ## GraphQL Endpoint Test
 
+- offline: http://localhost:3000/dev/graphql
 - local: http://localhost:3000/graphql
 - AWS: https://<your_aws_deployment_id>.execute-api.<your_aws_region>.amazonaws.com/dev/graphql
 
@@ -173,22 +190,24 @@ mutation {
 
 ## RESTful Endpoint Test
 
+> Please remove `/dev` from path if test using local mode
+
 ```
-curl -X POST 'http://localhost:3000/notification' \
+curl -X POST 'http://localhost:3000/dev/notification' \
   -H 'Content-Type: application/json' \
   --data-raw '{ "targetId": "device1", "userId": "user1", "content": "Hello" }'
 ```
 
 ```
-curl -X GET 'http://localhost:3000/notification?targetId=device1'
+curl -X GET 'http://localhost:3000/dev/notification?targetId=device1'
 ```
 
 ```
-curl -X GET 'http://localhost:3000/notification?userId=user1'
+curl -X GET 'http://localhost:3000/dev/notification?userId=user1'
 ```
 
 ```
-curl -X PATCH 'http://localhost:3000/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
+curl -X PATCH 'http://localhost:3000/dev/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
   -H 'Content-Type: application/json' \
   --data-raw '{ "content": "Hi" }'
 ```
