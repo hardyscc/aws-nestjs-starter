@@ -35,12 +35,11 @@ async function main() {
     files.map(async (file) => {
       console.log('detected:', file);
 
+      // use the filename without extention as tablename
       const fileNameExt = file.split(/[\\\/]/).pop();
       if (!fileNameExt) return;
       const fileName = fileNameExt.split('.').shift();
       if (!fileName) return;
-
-      // use the filename without extention as tablename
       const tableName = pascalCase(fileName);
 
       // dynamic import the typescript file
@@ -49,7 +48,7 @@ async function main() {
       const schema = Object.values(exports).shift() as object;
 
       // make sure it is a Schema class
-      if (schema && schema.constructor.name === 'Schema') {
+      if (schema.constructor.name === 'Schema') {
         const model = dynamoose.model(
           tableName,
           schema as Schema,
