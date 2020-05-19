@@ -12,7 +12,7 @@
     "start:watch": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "start:online": "cross-env IS_DDB_LOCAL=false nest start",
+    "start:online": "cross-env IS_DDB_LOCAL= nest start",
     "deploy": "sls deploy --verbose",
     "package": "sls package",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
@@ -23,8 +23,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "ddb:install": "sls dynamodb install",
     "ddb:start": "sls dynamodb start",
-    "sls:start": "cross-env IS_SLS=true sls offline start",
-    "sls:online": "cross-env IS_SLS=true cross-env IS_DDB_LOCAL=false sls offline",
+    "sls:start": "cross-env IS_NOT_SLS= sls offline start",
+    "sls:online": "cross-env IS_NOT_SLS= cross-env IS_DDB_LOCAL= sls offline",
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resources/dynamodb.yml\""
   },
   "dependencies": {

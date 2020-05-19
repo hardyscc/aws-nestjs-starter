@@ -11,9 +11,9 @@ import { NotificationModule } from './notification/notification.module';
       autoSchemaFile: true,
       playground: {
         endpoint:
-          process.env.IS_SLS === 'true'
-            ? `/${process.env.STAGE}/graphql`
-            : '/graphql',
+          process.env.IS_NOT_SLS === 'true'
+            ? '/graphql'
+            : `/${process.env.STAGE}/graphql`,
       },
     }),
     DynamooseModule.forRoot({
