@@ -27,7 +27,7 @@ async function main() {
     region: 'any',
   });
 
-  const slsResources = { Resources: {} };
+  const slsResources: { Resources: Record<string, any> } = { Resources: {} };
 
   // find all the files that match the given pattern
   const files = await glob.promise(matchPattern);
@@ -35,22 +35,21 @@ async function main() {
     files.map(async (file) => {
       console.log('detected:', file);
 
+      const fileNameExt = file.split(/[\\\/]/).pop();
+      if (!fileNameExt) return;
+      const fileName = fileNameExt.split('.').shift();
+      if (!fileName) return;
+
       // use the filename without extention as tablename
-      const tableName = pascalCase(
-        file
-          .split(/[\\\/]/)
-          .pop()
-          .split('.')
-          .shift(),
-      );
+      const tableName = pascalCase(fileName);
 
       // dynamic import the typescript file
       const exports = await import(`.${path.sep}${file}`);
       // get the first export
-      const schema = Object.values(exports).shift();
+      const schema = Object.values(exports).shift() as object;
 
       // make sure it is a Schema class
-      if (schema.constructor.name === 'Schema') {
+      if (schema && schema.constructor.name === 'Schema') {
         const model = dynamoose.model(
           tableName,
           schema as Schema,
