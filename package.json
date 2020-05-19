@@ -62,7 +62,7 @@
     "@types/node": "14.0.3",
     "@types/serverless": "1.67.2",
     "@types/supertest": "2.0.9",
-    "@types/uuid": "7.0.3",
+    "@types/uuid": "8.0.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "change-case": "4.1.1",
