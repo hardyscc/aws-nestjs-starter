@@ -11,7 +11,7 @@ import { NotificationModule } from './notification/notification.module';
       autoSchemaFile: true,
       playground: {
         endpoint:
-          process.env.IS_SERVERLESS === 'true'
+          process.env.IS_SLS === 'true'
             ? `/${process.env.STAGE}/graphql`
             : '/graphql',
       },
