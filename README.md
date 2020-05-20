@@ -75,23 +75,20 @@ Default output format [None]:
 $ npm run deploy
 ```
 
-## Offline Development
+## local Offline Development
 
 ```bash
 # install dynamodb local
 $ npm run ddb:install
 
-# start serverless offline server
+# start serverless-offline server
 $ npm run sls:start
 
-# start serverless offline connect to online online dynamodb
+# start serverless-offline server and connect to online dynamodb
 $ npm run sls:online
-
-# re-generate the resources/dynamodb.yml from schemas
-$ npm run genres
 ```
 
-## Local Development - (Optional)
+## Local NestJS Development - (Optional)
 
 ```bash
 # install dynamodb local
@@ -100,15 +97,19 @@ $ npm run ddb:install
 # start dynamodb local
 $ npm run ddb:start
 
-# start local server
+# start local nestjs server
 $ npm start
 
-# start local server in watch mode
+# start local nestjs server in watch mode
 $ npm run start:watch
 
-# start local server connect to online dynamodb
+# start local nestjs server and connect to online dynamodb
 $ npm run start:online
+```
 
+## Tools
+
+```bash
 # re-generate the resources/dynamodb.yml from schemas
 $ npm run genres
 ```
