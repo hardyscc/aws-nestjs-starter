@@ -78,7 +78,7 @@
     "prettier": "2.0.5",
     "serverless": "1.71.1",
     "serverless-dynamodb-local": "0.2.39",
-    "serverless-offline": "6.1.5",
+    "serverless-offline": "6.1.7",
     "serverless-plugin-typescript": "1.1.9",
     "supertest": "4.0.2",
     "ts-jest": "26.0.0",
