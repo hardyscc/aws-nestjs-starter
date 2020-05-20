@@ -11,15 +11,15 @@
     "baseUrl": "./",
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": ["node_modules", "dist"]
 }

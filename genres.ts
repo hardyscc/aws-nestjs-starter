@@ -36,10 +36,8 @@ async function main() {
       console.log('detected:', file);
 
       // use the filename without extention as tablename
-      const fileNameExt = file.split(/[\\\/]/).pop();
-      if (!fileNameExt) return;
-      const fileName = fileNameExt.split('.').shift();
-      if (!fileName) return;
+      const fileNameExt = file.split(/[\\\/]/).pop()!;
+      const fileName = fileNameExt.split('.').shift()!;
       const tableName = pascalCase(fileName);
 
       // dynamic import the typescript file
