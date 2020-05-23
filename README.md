@@ -75,7 +75,7 @@ Default output format [None]:
 $ npm run deploy
 ```
 
-## local Offline Development
+## Local Offline Development
 
 ```bash
 # install dynamodb local
@@ -191,7 +191,7 @@ mutation {
 
 ## RESTful Endpoint Test
 
-> Please remove `/dev` from path if test using local mode
+> Please remove `/dev` from path if test using local nestjs mode
 
 ```
 curl -X POST 'http://localhost:3000/dev/notification' \
