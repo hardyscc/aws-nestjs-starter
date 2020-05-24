@@ -15,7 +15,7 @@
     "start:online": "cross-env IS_DDB_LOCAL= nest start",
     "deploy": "sls deploy --verbose",
     "package": "sls package",
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint": "eslint \"{src,test}/**/*.ts\" --max-warnings 0 --fix ",
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watch",
     "test:cov": "jest --verbose --coverage",
