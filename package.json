@@ -31,7 +31,7 @@
     "@nestjs/common": "7.1.0",
     "@nestjs/config": "0.5.0",
     "@nestjs/core": "7.1.0",
-    "@nestjs/graphql": "7.3.9",
+    "@nestjs/graphql": "7.3.11",
     "@nestjs/platform-express": "7.1.0",
     "apollo-server-express": "2.13.1",
     "aws-serverless-express": "3.3.8",
