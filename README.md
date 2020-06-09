@@ -178,7 +178,7 @@ query {
 mutation {
   updateNotification(
     id: "1ca7726e-0af8-4ff1-8ef1-4eae97377162"
-    input: { content: "Hi" }
+    input: { status: Deleted }
   ) {
     id
     targetId

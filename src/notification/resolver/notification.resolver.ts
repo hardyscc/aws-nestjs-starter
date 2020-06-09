@@ -21,7 +21,7 @@ export class NotificationResolver {
     return this.notificationService.update({ id }, input);
   }
 
-  @Query(/* istanbul ignore next */ () => [Notification])
+  @Query(/* istanbul ignore next */ () => Notification)
   notification(
     @Args('id', { type: /* istanbul ignore next */ () => ID }) id: string,
   ) {
