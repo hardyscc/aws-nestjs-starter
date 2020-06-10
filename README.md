@@ -210,7 +210,7 @@ curl -X GET 'http://localhost:3000/dev/notification?userId=user1'
 ```
 curl -X PATCH 'http://localhost:3000/dev/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
   -H 'Content-Type: application/json' \
-  --data-raw '{ "content": "Hi" }'
+  --data-raw '{ "status": "Deleted" }'
 ```
 
 ## Stay in touch
