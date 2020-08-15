@@ -40,7 +40,7 @@
     "dynamoose": "2.3.0",
     "graphql": "15.3.0",
     "graphql-tools": "6.0.18",
-    "nestjs-dynamoose": "0.2.7",
+    "nestjs-dynamoose": "0.2.8",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.6.2",
