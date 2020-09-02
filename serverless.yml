@@ -10,6 +10,7 @@ provider:
     SERVICE: ${self:service}
     STAGE: ${self:provider.stage}
     REGION: ${self:provider.region}
+    NO_COLOR: ${env:NO_COLOR, 'true'}
   iamRoleStatements:
     - Effect: Allow
       Action:

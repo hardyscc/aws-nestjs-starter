@@ -23,8 +23,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "ddb:install": "sls dynamodb install",
     "ddb:start": "sls dynamodb start",
-    "sls:start": "cross-env IS_NOT_SLS= sls offline start",
-    "sls:online": "cross-env IS_NOT_SLS= cross-env IS_DDB_LOCAL= sls offline",
+    "sls:start": "cross-env NO_COLOR= cross-env IS_NOT_SLS= sls offline start",
+    "sls:online": "cross-env NO_COLOR= cross-env IS_NOT_SLS= cross-env IS_DDB_LOCAL= sls offline",
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resources/dynamodb.yml\""
   },
   "dependencies": {
