@@ -43,15 +43,11 @@ async function main() {
       // dynamic import the typescript file
       const exports = await import(`.${path.sep}${file}`);
       // get the first export
-      const schema = Object.values(exports).shift() as object;
+      const schema = Object.values(exports).shift() as Schema;
 
       // make sure it is a Schema class
       if (schema.constructor.name === 'Schema') {
-        const model = dynamoose.model(
-          tableName,
-          schema as Schema,
-          globalOptions,
-        );
+        const model = dynamoose.model(tableName, schema, globalOptions);
         // append to the resources object
         slsResources.Resources[`${tableName}DynamoDBTable`] = {
           Type: 'AWS::DynamoDB::Table',
