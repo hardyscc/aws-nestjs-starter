@@ -17,7 +17,7 @@ const bootstrapServer = async (): Promise<Server> => {
     AppModule,
     new ExpressAdapter(expressApp),
   );
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
   app.enableCors();
   await app.init();
   return createServer(expressApp);
