@@ -81,7 +81,7 @@
     "serverless-offline": "6.7.0",
     "serverless-plugin-typescript": "1.1.9",
     "supertest": "4.0.2",
-    "ts-jest": "26.3.0",
+    "ts-jest": "26.4.0",
     "ts-loader": "8.0.4",
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
