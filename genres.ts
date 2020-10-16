@@ -15,6 +15,7 @@ const deletionPolicy = 'Delete';
 const globalOptions: ModelOptionsOptional = {
   throughput: 'ON_DEMAND',
   prefix: '${self:service}-${self:provider.stage}-',
+  suffix: '-table',
 };
 
 async function main() {
@@ -47,9 +48,9 @@ async function main() {
 
       // make sure it is a Schema class
       if (schema.constructor.name === 'Schema') {
-        const model = dynamoose.model(tableName, schema, globalOptions);
+        const model = dynamoose.model(fileName, schema, globalOptions);
         // append to the resources object
-        slsResources.Resources[`${tableName}DynamoDBTable`] = {
+        slsResources.Resources[`${tableName}Table`] = {
           Type: 'AWS::DynamoDB::Table',
           DeletionPolicy: deletionPolicy,
           Properties: await (model as any).table.create.request(),

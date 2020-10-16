@@ -39,7 +39,7 @@ custom:
       seed: false
 
 functions:
-  index:
+  index-function:
     handler: src/index.handler
     events:
       - http:

@@ -22,6 +22,7 @@ import { NotificationModule } from './notification/notification.module';
       model: {
         create: false,
         prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
+        suffix: '-table',
       },
     }),
     NotificationModule,

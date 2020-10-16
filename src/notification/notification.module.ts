@@ -9,7 +9,7 @@ import { NotificationService } from './service/notification.service';
   imports: [
     DynamooseModule.forFeature([
       {
-        name: 'Notification',
+        name: 'notification',
         schema: NotificationSchema,
       },
     ]),

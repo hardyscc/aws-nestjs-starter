@@ -14,11 +14,12 @@ export const NotificationTestImports = [
     model: {
       create: false,
       prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
+      suffix: '-table',
     },
   }),
   DynamooseModule.forFeature([
     {
-      name: 'Notification',
+      name: 'notification',
       schema: NotificationSchema,
     },
   ]),
