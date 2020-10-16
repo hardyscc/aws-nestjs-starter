@@ -25,7 +25,7 @@
     "ddb:start": "sls dynamodb start",
     "sls:start": "cross-env NO_COLOR= cross-env IS_NOT_SLS= sls offline start",
     "sls:online": "cross-env NO_COLOR= cross-env IS_NOT_SLS= cross-env IS_DDB_LOCAL= sls offline",
-    "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resources/dynamodb.yml\""
+    "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
     "@nestjs/common": "7.4.4",

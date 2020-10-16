@@ -48,4 +48,4 @@ functions:
           method: any
 
 resources:
-  - ${file(resources/dynamodb.yml)}
+  - ${file(resource/dynamodb.yml)}
