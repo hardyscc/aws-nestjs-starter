@@ -68,7 +68,7 @@
     "change-case": "4.1.1",
     "cross-env": "7.0.2",
     "eslint": "7.12.1",
-    "eslint-config-prettier": "6.14.0",
+    "eslint-config-prettier": "6.15.0",
     "eslint-plugin-import": "2.22.1",
     "glob-promise": "3.4.0",
     "husky": "4.3.0",
