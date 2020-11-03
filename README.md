@@ -1,4 +1,4 @@
-# Serverless, AWS, NestJS, GraphQL and DynamoDB starter
+# Serverless, AWS, NestJS and DynamoDB starter
 
 <p>
 <a href="https://github.com/hardyscc/aws-nestjs-starter/actions"><img src="https://github.com/hardyscc/aws-nestjs-starter/workflows/Node.js%20CI/badge.svg" alt="CI"></a>
@@ -14,13 +14,14 @@
 
 A starter project that makes creating a deployable AWS Serverless project extremely easy.
 
+> The GraphQL support has been removed due to excess the lamdba 250MB unzip limit, please checkout the `graphql` branch if you really need it.
+
 ## Technologies
 
 - [AWS Lambda](https://aws.amazon.com/lambda)
 - [AWS DynamoDB](https://aws.amazon.com/dynamodb)
 - [Serverless](https://serverless.com/framework/docs/providers/aws/)
 - [NestJS](https://docs.nestjs.com/)
-- [NestJS GraphQL](https://docs.nestjs.com/graphql/quick-start)
 - [NestJS Dynamoose](https://github.com/hardyscc/nestjs-dynamoose)
 
 ## Usage
@@ -132,61 +133,6 @@ $ npm run ddb:start
 
 # run unit test with coverage
 $ npm run test:e2e
-```
-
-## GraphQL Endpoint Test
-
-- offline: http://localhost:3000/dev/graphql
-- local: http://localhost:3000/graphql
-- AWS: https://<your_aws_deployment_id>.execute-api.<your_aws_region>.amazonaws.com/dev/graphql
-
-```graphql
-mutation {
-  createNotification(
-    input: { targetId: "device1", userId: "user1", content: "Hello World" }
-  ) {
-    id
-  }
-}
-```
-
-```graphql
-query {
-  notificationByUserId(userId: "user1") {
-    id
-    targetId
-    userId
-    content
-    createAt
-  }
-}
-```
-
-```graphql
-query {
-  notificationByTargetId(targetId: "device1") {
-    id
-    targetId
-    userId
-    content
-    createAt
-  }
-}
-```
-
-```graphql
-mutation {
-  updateNotification(
-    id: "1ca7726e-0af8-4ff1-8ef1-4eae97377162"
-    input: { status: Deleted }
-  ) {
-    id
-    targetId
-    userId
-    content
-    createAt
-  }
-}
 ```
 
 ## RESTful Endpoint Test
