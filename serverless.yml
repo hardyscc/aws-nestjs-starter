@@ -28,6 +28,12 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
 
+# temporary remove the unnecessary package
+package:
+  exclude:
+    - node_modules/typescript/**
+    - node_modules/@types/**
+
 custom:
   dynamodb:
     stages:
