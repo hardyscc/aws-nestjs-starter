@@ -1,5 +1,4 @@
-service:
-  name: aws-nestjs-starter
+service: aws-nestjs-starter
 
 provider:
   name: aws
@@ -11,6 +10,8 @@ provider:
     STAGE: ${self:provider.stage}
     REGION: ${self:provider.region}
     NO_COLOR: ${env:NO_COLOR, 'true'}
+  apiGateway:
+    shouldStartNameWithService: true
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -28,7 +29,7 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
 
-# temporary remove the unnecessary package
+# remove the unnecessary packages to keep small upload size
 package:
   exclude:
     - node_modules/typescript/**

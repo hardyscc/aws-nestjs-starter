@@ -28,6 +28,7 @@
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
+    "@graphql-tools/merge": "6.2.5",
     "@nestjs/common": "7.5.1",
     "@nestjs/config": "0.5.0",
     "@nestjs/core": "7.5.1",
@@ -39,7 +40,6 @@
     "class-validator": "0.12.2",
     "dynamoose": "2.3.0",
     "graphql": "15.4.0",
-    "graphql-tools": "7.0.1",
     "nestjs-dynamoose": "0.2.9",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
