@@ -56,3 +56,4 @@ functions:
 
 resources:
   - ${file(resource/dynamodb.yml)}
+  - ${file(resource/cognito.yml)}
