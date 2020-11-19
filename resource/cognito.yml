@@ -246,14 +246,14 @@ Resources:
         Type: Rules
         RulesConfiguration:
           Rules:
-            - Claim: cognito:groups
+            - Claim: custom:role
               MatchType: Equals
               Value: admin
               RoleARN:
                 Fn::GetAtt:
                   - AdminRole
                   - Arn
-            - Claim: cognito:groups
+            - Claim: custom:role
               MatchType: Equals
               Value: user
               RoleARN:
