@@ -17,6 +17,7 @@ provider:
       Action:
         - cognito-identity:GetIdentityPoolRoles
         - cognito-identity:SetIdentityPoolRoles
+        - iam:PassRole
         - dynamodb:DescribeTable
         - dynamodb:Query
         - dynamodb:Scan
