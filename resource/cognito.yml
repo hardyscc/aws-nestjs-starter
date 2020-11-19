@@ -1,51 +1,90 @@
 Resources:
-  CognitoUserPool:
+  UserPool:
     Type: AWS::Cognito::UserPool
     DeletionPolicy: Delete
     Properties:
       UserPoolName: ${self:service}-${self:provider.stage}-user-pool
-      UsernameAttributes:
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+      AliasAttributes:
         - email
       AutoVerifiedAttributes:
         - email
-
-  CognitoUserPoolClient:
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: false
+          RequireUppercase: true
+      Schema:
+        - Name: email
+          AttributeDataType: String
+          DeveloperOnlyAttribute: false
+          Mutable: true
+          Required: true
+        - Name: role
+          AttributeDataType: String
+          DeveloperOnlyAttribute: false
+          Mutable: true
+          Required: false
+  UserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     DeletionPolicy: Delete
     Properties:
       ClientName: ${self:service}-${self:provider.stage}-user-pool-client
-      UserPoolId:
-        Ref: CognitoUserPool
       GenerateSecret: false
-      ExplicitAuthFlows:
-        - ALLOW_ADMIN_USER_PASSWORD_AUTH
-        - ALLOW_CUSTOM_AUTH
-        - ALLOW_USER_SRP_AUTH
-        - ALLOW_REFRESH_TOKEN_AUTH
-      PreventUserExistenceErrors: ENABLED
-
-  CognitoIdentityPool:
+      RefreshTokenValidity: 7
+      UserPoolId:
+        Ref: UserPool
+  IdentityPool:
     Type: AWS::Cognito::IdentityPool
     DeletionPolicy: Delete
     Properties:
       IdentityPoolName: ${self:service}-${self:provider.stage}-identity-pool
-      AllowUnauthenticatedIdentities: false
+      AllowUnauthenticatedIdentities: true
       CognitoIdentityProviders:
         - ClientId:
-            Ref: CognitoUserPoolClient
+            Ref: UserPoolClient
           ProviderName:
-            Fn::GetAtt: ['CognitoUserPool', 'ProviderName']
-
-  CognitoIdentityPoolRoles:
-    Type: AWS::Cognito::IdentityPoolRoleAttachment
+            Fn::Join:
+              - ''
+              - - cognito-idp.
+                - Ref: AWS::Region
+                - .amazonaws.com/
+                - Ref: UserPool
+  CognitoUserBasePolicy:
+    Type: AWS::IAM::ManagedPolicy
     DeletionPolicy: Delete
     Properties:
-      IdentityPoolId:
-        Ref: CognitoIdentityPool
-      Roles:
-        authenticated:
-          Fn::GetAtt: [CognitoAuthRole, Arn]
-
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - mobileanalytics:PutEvents
+              - cognito-sync:*
+            Resource:
+              - '*'
+  UnauthenticatedRole:
+    Type: AWS::IAM::Role
+    DeletionPolicy: Delete
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Condition:
+              StringEquals:
+                'cognito-identity.amazonaws.com:aud':
+                  Ref: IdentityPool
+              ForAnyValue:StringLike:
+                'cognito-identity.amazonaws.com:amr': unauthenticated
+      ManagedPolicyArns:
+        - Ref: CognitoUserBasePolicy
   CognitoUserAuthenticatedPolicy:
     Type: AWS::IAM::ManagedPolicy
     DeletionPolicy: Delete
@@ -53,37 +92,32 @@ Resources:
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
-          - Effect: 'Allow'
+          - Effect: Allow
             Action:
-              - 'mobileanalytics:PutEvents'
-              - 'cognito-sync:*'
-              - 'cognito-identity:*'
-            Resource: '*'
-
-  CognitoAuthRole:
+              - cognito-identity:*
+            Resource:
+              - '*'
+  AuthenticatedRole:
     Type: AWS::IAM::Role
     DeletionPolicy: Delete
     Properties:
-      Path: /
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-          - Effect: 'Allow'
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
             Principal:
-              Federated: 'cognito-identity.amazonaws.com'
-            Action:
-              - 'sts:AssumeRoleWithWebIdentity'
+              Federated: cognito-identity.amazonaws.com
             Condition:
               StringEquals:
                 'cognito-identity.amazonaws.com:aud':
-                  Ref: CognitoIdentityPool
-              'ForAnyValue:StringLike':
+                  Ref: IdentityPool
+              ForAnyValue:StringLike:
                 'cognito-identity.amazonaws.com:amr': authenticated
       ManagedPolicyArns:
+        - Ref: CognitoUserBasePolicy
         - Ref: CognitoUserAuthenticatedPolicy
-        - Ref: ExecuteApiPolicy
-
-  ExecuteApiPolicy:
+  ApiGatewayGetPolicy:
     Type: AWS::IAM::ManagedPolicy
     DeletionPolicy: Delete
     Properties:
@@ -102,15 +136,138 @@ Resources:
                   - Ref: AWS::AccountId
                   - ':'
                   - Ref: ApiGatewayRestApi
-                  - '/*'
+                  - '/*/GET/*'
+  ApiGatewayAnyPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    DeletionPolicy: Delete
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Action:
+              - 'execute-api:Invoke'
+            Resource:
+              Fn::Join:
+                - ''
+                - - 'arn:aws:execute-api:'
+                  - Ref: AWS::Region
+                  - ':'
+                  - Ref: AWS::AccountId
+                  - ':'
+                  - Ref: ApiGatewayRestApi
+                  - '/*/*/*'
+  AdminRole:
+    Type: AWS::IAM::Role
+    DeletionPolicy: Delete
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Condition:
+              StringEquals:
+                'cognito-identity.amazonaws.com:aud':
+                  Ref: IdentityPool
+              ForAnyValue:StringLike:
+                'cognito-identity.amazonaws.com:amr': authenticated
+      ManagedPolicyArns:
+        - Ref: CognitoUserBasePolicy
+        - Ref: CognitoUserAuthenticatedPolicy
+        - Ref: ApiGatewayAnyPolicy
+  UserRole:
+    Type: AWS::IAM::Role
+    DeletionPolicy: Delete
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Condition:
+              StringEquals:
+                'cognito-identity.amazonaws.com:aud':
+                  Ref: IdentityPool
+              ForAnyValue:StringLike:
+                'cognito-identity.amazonaws.com:amr': authenticated
+      ManagedPolicyArns:
+        - Ref: CognitoUserBasePolicy
+        - Ref: CognitoUserAuthenticatedPolicy
+        - Ref: ApiGatewayGetPolicy
+  RoleAttachment:
+    Type: AWS::Cognito::IdentityPoolRoleAttachment
+    DeletionPolicy: Delete
+    Properties:
+      IdentityPoolId:
+        Ref: IdentityPool
+      Roles:
+        unauthenticated:
+          Fn::GetAtt:
+            - UnauthenticatedRole
+            - Arn
+        authenticated:
+          Fn::GetAtt:
+            - AuthenticatedRole
+            - Arn
+  IdentityPoolRoleMapping:
+    Type: Custom::IdentityPoolRoleMapping
+    DeletionPolicy: Delete
+    DependsOn:
+      - CustomDashresourceDashfunctionLambdaFunction
+      - IdentityPool
+      - UserPool
+      - UserPoolClient
+      - AdminRole
+      - UserRole
+      - RoleAttachment
+    Properties:
+      ServiceToken:
+        Fn::GetAtt:
+          - CustomDashresourceDashfunctionLambdaFunction
+          - Arn
+      IdentityPoolId:
+        Ref: IdentityPool
+      IdentityProviderName:
+        Fn::Join:
+          - ''
+          - - cognito-idp.
+            - Ref: AWS::Region
+            - .amazonaws.com/
+            - Ref: UserPool
+            - ':'
+            - Ref: UserPoolClient
+      RoleMapping:
+        AmbiguousRoleResolution: Deny
+        Type: Rules
+        RulesConfiguration:
+          Rules:
+            - Claim: cognito:groups
+              MatchType: Equals
+              Value: admin
+              RoleARN:
+                Fn::GetAtt:
+                  - AdminRole
+                  - Arn
+            - Claim: cognito:groups
+              MatchType: Equals
+              Value: user
+              RoleARN:
+                Fn::GetAtt:
+                  - UserRole
+                  - Arn
 
 Outputs:
   UserPoolId:
     Value:
-      Ref: CognitoUserPool
+      Ref: UserPool
   UserPoolClientId:
     Value:
-      Ref: CognitoUserPoolClient
+      Ref: UserPoolClient
   IdentityPoolId:
     Value:
-      Ref: CognitoIdentityPool
+      Ref: IdentityPool

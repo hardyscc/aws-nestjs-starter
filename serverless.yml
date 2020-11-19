@@ -15,6 +15,8 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
+        - cognito-identity:GetIdentityPoolRoles
+        - cognito-identity:SetIdentityPoolRoles
         - dynamodb:DescribeTable
         - dynamodb:Query
         - dynamodb:Scan
@@ -46,13 +48,31 @@ custom:
       seed: false
 
 functions:
+  custom-resource-function:
+    handler: src/handler/custom-resource.handler
   index-function:
     handler: src/index.handler
     events:
       - http:
           cors: true
-          path: '{proxy+}'
+          path: 'notification'
+          method: get
+          authorizer: aws_iam
+      - http:
+          cors: true
+          path: 'notification'
+          method: post
+          authorizer: aws_iam
+      - http:
+          cors: true
+          path: 'notification'
+          method: patch
+          authorizer: aws_iam
+      - http:
+          cors: true
+          path: 'graphql'
           method: any
+          authorizer: aws_iam
 
 resources:
   - ${file(resource/dynamodb.yml)}
