@@ -18,6 +18,9 @@ provider:
         - cognito-identity:GetIdentityPoolRoles
         - cognito-identity:SetIdentityPoolRoles
         - iam:PassRole
+      Resource: '*'
+    - Effect: Allow
+      Action:
         - dynamodb:DescribeTable
         - dynamodb:Query
         - dynamodb:Scan
@@ -25,7 +28,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: arn:aws:dynamodb:${self:provider.region}:*:*
+      Resource: 'arn:aws:dynamodb:${self:provider.region}:*:*'
 
 plugins:
   - serverless-plugin-typescript
@@ -56,22 +59,22 @@ functions:
     events:
       - http:
           cors: true
-          path: 'notification'
+          path: notification
           method: get
           authorizer: aws_iam
       - http:
           cors: true
-          path: 'notification'
+          path: notification
           method: post
           authorizer: aws_iam
       - http:
           cors: true
-          path: 'notification'
+          path: notification
           method: patch
           authorizer: aws_iam
       - http:
           cors: true
-          path: 'graphql'
+          path: graphql
           method: any
           authorizer: aws_iam
 
