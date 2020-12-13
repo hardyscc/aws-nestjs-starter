@@ -38,7 +38,7 @@
     "aws-serverless-express": "3.4.0",
     "class-transformer": "0.3.1",
     "class-validator": "0.12.2",
-    "dynamoose": "2.4.1",
+    "dynamoose": "2.5.0",
     "graphql": "15.4.0",
     "nestjs-dynamoose": "0.2.9",
     "reflect-metadata": "0.1.13",
