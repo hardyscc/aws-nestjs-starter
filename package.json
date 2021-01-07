@@ -57,7 +57,7 @@
     "@types/aws-lambda": "8.10.70",
     "@types/aws-serverless-express": "3.3.3",
     "@types/express": "4.17.9",
-    "@types/jest": "26.0.19",
+    "@types/jest": "26.0.20",
     "@types/js-yaml": "4.0.0",
     "@types/node": "14.14.20",
     "@types/serverless": "1.78.17",
