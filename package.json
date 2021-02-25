@@ -36,7 +36,7 @@
     "@nestjs/platform-express": "7.6.13",
     "apollo-server-express": "2.21.0",
     "aws-serverless-express": "3.4.0",
-    "class-transformer": "0.3.2",
+    "class-transformer": "0.4.0",
     "class-validator": "0.13.1",
     "dynamoose": "2.7.0",
     "graphql": "15.4.0",
