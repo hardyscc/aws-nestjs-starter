@@ -28,7 +28,7 @@
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
-    "@graphql-tools/merge": "6.2.10",
+    "@graphql-tools/merge": "6.2.11",
     "@nestjs/common": "7.6.15",
     "@nestjs/config": "0.6.3",
     "@nestjs/core": "7.6.15",
