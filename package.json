@@ -75,7 +75,7 @@
     "jest": "26.6.3",
     "js-yaml": "4.1.0",
     "lint-staged": "11.0.0",
-    "prettier": "2.3.0",
+    "prettier": "2.3.1",
     "serverless": "2.44.0",
     "serverless-dynamodb-local": "0.2.39",
     "serverless-offline": "7.0.0",
