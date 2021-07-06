@@ -55,7 +55,7 @@
     "@nestjs/testing": "7.6.18",
     "@shelf/jest-dynamodb": "1.8.1",
     "@types/aws-lambda": "8.10.77",
-    "@types/aws-serverless-express": "3.3.3",
+    "@types/aws-serverless-express": "3.3.4",
     "@types/express": "4.17.12",
     "@types/jest": "26.0.23",
     "@types/js-yaml": "4.0.1",
