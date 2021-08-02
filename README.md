@@ -26,7 +26,7 @@ A starter project that makes creating a deployable AWS Serverless project extrem
 ## Usage
 
 ```bash
-git clone https://github.com/hardyscc/aws-nestjs-starter.git <Your_Project_Name>
+git clone -b nest-v7 https://github.com/hardyscc/aws-nestjs-starter.git <Your_Project_Name>
 cd <Your_Project_Name>
 
 npm install
