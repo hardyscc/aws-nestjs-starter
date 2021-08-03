@@ -1,6 +1,7 @@
 {
   "timezone": "Asia/Hong_Kong",
   "schedule": "before 6am",
+  "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
   "automerge": true,
   "extends": ["config:base"]
 }
