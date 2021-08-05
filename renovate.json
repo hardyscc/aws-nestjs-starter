@@ -1,7 +1,7 @@
 {
+  "timezone": "Asia/Hong_Kong",
   "packageRules": [
     {
-      "timezone": "Asia/Hong_Kong",
       "schedule": "before 6am",
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
