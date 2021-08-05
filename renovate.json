@@ -1,7 +1,10 @@
 {
-  "timezone": "Asia/Hong_Kong",
-  "schedule": "before 6am",
-  "ignoreDeps": ["apollo-server-express"],
-  "automerge": true,
-  "extends": ["config:base"]
+  "packageRules": [
+    {
+      "timezone": "Asia/Hong_Kong",
+      "schedule": "before 6am",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
 }
