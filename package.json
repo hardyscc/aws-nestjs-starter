@@ -60,7 +60,7 @@
     "@types/jest": "26.0.24",
     "@types/js-yaml": "4.0.2",
     "@types/node": "16.4.10",
-    "@types/serverless": "1.78.33",
+    "@types/serverless": "1.78.34",
     "@types/supertest": "2.0.11",
     "@types/uuid": "8.3.1",
     "@typescript-eslint/eslint-plugin": "4.29.1",
