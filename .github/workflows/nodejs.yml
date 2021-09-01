@@ -5,11 +5,11 @@ name: Node.js CI
 
 on:
   push:
-    branches: [master]
+    branches: [$default-branch]
     paths-ignore:
       - 'README.md'
   pull_request:
-    branches: [master]
+    branches: [$default-branch]
     paths-ignore:
       - 'README.md'
 
@@ -28,12 +28,28 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       - run: npm ci
       - run: npm run lint
       - run: npm run build --if-present
       - run: npm run test:cov
         env:
           CI: true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: |
+            dist
+            coverage
+
+  code-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.6
         env:
