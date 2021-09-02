@@ -5,29 +5,25 @@ name: Node.js CI
 
 on:
   push:
-    branches: [$default-branch]
+    branches: [master]
     paths-ignore:
       - 'README.md'
   pull_request:
-    branches: [$default-branch]
+    branches: [master]
     paths-ignore:
       - 'README.md'
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
       - run: git fetch --unshallow
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
           cache: 'npm'
       - run: npm ci
       - run: npm run lint
@@ -43,6 +39,7 @@ jobs:
             coverage
 
   code-quality:
+    needs: build-test
     runs-on: ubuntu-latest
 
     steps:
@@ -55,3 +52,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deploy:
+    needs: [build-test, code-quality]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
+      - run: ls -al dist
