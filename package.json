@@ -76,7 +76,7 @@
     "js-yaml": "4.1.0",
     "lint-staged": "11.1.2",
     "prettier": "2.4.0",
-    "serverless": "2.57.0",
+    "serverless": "2.58.0",
     "serverless-dynamodb-local": "0.2.40",
     "serverless-offline": "8.1.0",
     "serverless-plugin-typescript": "1.2.0",
