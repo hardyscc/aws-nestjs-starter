@@ -74,7 +74,7 @@
     "husky": "7.0.2",
     "jest": "27.2.4",
     "js-yaml": "4.1.0",
-    "lint-staged": "11.1.2",
+    "lint-staged": "11.2.0",
     "prettier": "2.4.1",
     "serverless": "2.60.3",
     "serverless-dynamodb-local": "0.2.40",
