@@ -70,7 +70,7 @@
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.25.2",
-    "glob-promise": "4.2.1",
+    "glob-promise": "4.2.2",
     "husky": "7.0.4",
     "jest": "27.3.1",
     "js-yaml": "4.1.0",
