@@ -1,6 +1,9 @@
 {
-  "timezone": "Asia/Hong_Kong",
-  "schedule": "before 6am",
-  "automerge": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ],
   "extends": ["config:base"]
 }
