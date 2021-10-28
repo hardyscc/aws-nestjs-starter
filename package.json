@@ -31,7 +31,7 @@
     "@aws-sdk/client-dynamodb": "3.38.0",
     "@graphql-tools/merge": "8.2.1",
     "@nestjs/common": "8.1.2",
-    "@nestjs/config": "1.0.2",
+    "@nestjs/config": "1.0.3",
     "@nestjs/core": "8.1.2",
     "@nestjs/graphql": "9.1.1",
     "@nestjs/platform-express": "8.1.2",
