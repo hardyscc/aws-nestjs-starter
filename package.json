@@ -52,7 +52,7 @@
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
     "@nestjs/cli": "8.1.4",
-    "@nestjs/schematics": "8.0.4",
+    "@nestjs/schematics": "8.0.5",
     "@nestjs/testing": "8.2.1",
     "@shelf/jest-dynamodb": "2.1.0",
     "@types/aws-lambda": "8.10.85",
