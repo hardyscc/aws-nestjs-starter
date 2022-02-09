@@ -44,7 +44,7 @@
     "nestjs-dynamoose": "0.3.4",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "7.5.3",
+    "rxjs": "7.5.4",
     "type-graphql": "1.1.1",
     "uuid": "8.3.2"
   },
