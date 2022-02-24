@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.52.0",
-    "@graphql-tools/merge": "8.2.2",
+    "@graphql-tools/merge": "8.2.3",
     "@nestjs/common": "8.3.1",
     "@nestjs/config": "1.2.0",
     "@nestjs/core": "8.3.1",
