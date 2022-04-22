@@ -1,9 +1,9 @@
 Resources:
   NotificationTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     DeletionPolicy: Delete
     Properties:
-      TableName: '${self:service}-${self:provider.stage}-notification-table'
+      TableName: ${self:service}-${self:provider.stage}-notification-table
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: id
