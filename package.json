@@ -73,7 +73,7 @@
     "glob-promise": "4.2.2",
     "jest": "28.1.1",
     "js-yaml": "4.1.0",
-    "lint-staged": "13.0.2",
+    "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "serverless": "2.72.3",
     "serverless-dynamodb-local": "0.2.40",
