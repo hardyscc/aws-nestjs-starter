@@ -1,3 +1,4 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { DynamooseModule } from 'nestjs-dynamoose';
@@ -5,7 +6,8 @@ import { NotificationSchema } from '../schema/notification.schema';
 
 export const NotificationTestImports = [
   ConfigModule.forRoot(),
-  GraphQLModule.forRoot({
+  GraphQLModule.forRoot<ApolloDriverConfig>({
+    driver: ApolloDriver,
     autoSchemaFile: true,
   }),
   DynamooseModule.forRoot({
