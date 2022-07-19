@@ -1,23 +1,13 @@
-module.exports = async () => {
-  const serverless = new (require('serverless'))();
+const { execSync } = require('child_process');
 
-  await serverless.init();
-  const service = await serverless.variables.populateService();
+module.exports = () => {
+  const service = JSON.parse(
+    execSync('npx sls print --format json', { encoding: 'utf-8' }),
+  );
 
-  const extractTableResources = (res) =>
-    Object.keys(res)
-      .map((name) => res[name])
-      .filter((r) => r.Type === 'AWS::DynamoDB::Table')
-      .map((r) => r.Properties);
-
-  const tables = [];
-  if (Array.isArray(service.resources)) {
-    service.resources.map((r) => {
-      tables.push(...extractTableResources(r.Resources));
-    });
-  } else {
-    tables.push(...extractTableResources(service.resources.Resources));
-  }
+  const tables = Object.values(service.resources.Resources)
+    .filter((resource) => resource.Type === 'AWS::DynamoDB::Table')
+    .map((resource) => resource.Properties);
 
   return {
     tables,

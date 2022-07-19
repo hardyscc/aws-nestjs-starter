@@ -81,8 +81,11 @@ $ npm run deploy
 # install dynamodb local
 $ npm run ddb:install
 
+# start dynamodb local
+$ npm run ddb:start
+
 # start serverless-offline server
-$ npm run sls:start
+$ npm run sls:offline
 
 # start serverless-offline server and connect to online dynamodb
 $ npm run sls:online

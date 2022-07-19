@@ -11,18 +11,13 @@ import { NotificationModule } from './notification/notification.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
-      playground: {
-        endpoint:
-          process.env.IS_NOT_SLS === 'true'
-            ? '/graphql'
-            : `/${process.env.STAGE}/graphql`,
-      },
+      playground: true,
     }),
     DynamooseModule.forRoot({
       local: process.env.IS_DDB_LOCAL === 'true',
       aws: { region: process.env.REGION },
       model: {
-        create: false,
+        create: process.env.IS_DDB_LOCAL === 'true',
         prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
         suffix: '-table',
       },
