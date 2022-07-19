@@ -12,28 +12,24 @@ provider:
     NO_COLOR: ${env:NO_COLOR, 'true'}
   apiGateway:
     shouldStartNameWithService: true
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: arn:aws:dynamodb:${self:provider.region}:*:*
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: arn:aws:dynamodb:${self:provider.region}:*:*
 
 plugins:
   - serverless-plugin-typescript
   - serverless-dynamodb-local
   - serverless-offline
-
-# remove the unnecessary packages to keep small upload size
-package:
-  exclude:
-    - node_modules/typescript/**
-    - node_modules/@types/**
 
 custom:
   dynamodb:
