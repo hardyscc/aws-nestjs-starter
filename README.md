@@ -75,12 +75,15 @@ Default output format [None]:
 $ npm run deploy
 ```
 
+## Install DynamoDB local
+
+```bash
+$ npm run ddb:install
+```
+
 ## Local Offline Development
 
 ```bash
-# install dynamodb local
-$ npm run ddb:install
-
 # start dynamodb local
 $ npm run ddb:start
 
@@ -94,9 +97,6 @@ $ npm run sls:online
 ## Local NestJS Development - (Optional)
 
 ```bash
-# install dynamodb local
-$ npm run ddb:install
-
 # start dynamodb local
 $ npm run ddb:start
 
