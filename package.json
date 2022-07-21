@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@graphql-tools/merge": "8.3.0",
-    "@nestjs/apollo": "10.0.17",
+    "@nestjs/apollo": "10.0.19",
     "@nestjs/common": "9.0.5",
     "@nestjs/config": "2.2.0",
     "@nestjs/core": "9.0.5",
