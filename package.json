@@ -80,7 +80,7 @@
     "serverless-offline": "9.2.0",
     "serverless-plugin-typescript": "2.1.2",
     "supertest": "6.2.4",
-    "ts-jest": "28.0.7",
+    "ts-jest": "28.0.8",
     "ts-loader": "9.3.1",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.1.0",
