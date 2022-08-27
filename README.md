@@ -78,6 +78,7 @@ $ npm run deploy
 ## Install DynamoDB local
 
 ```bash
+# download dynamodb local into .dynamodb folder
 $ npm run ddb:install
 ```
 
