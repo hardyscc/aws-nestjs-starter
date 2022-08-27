@@ -62,7 +62,7 @@ $ aws configure
 
 AWS Access Key ID [****************TKYQ]:
 AWS Secret Access Key [****************yNO2]:
-Default region name [None]:
+Default region name [us-east-1]:
 Default output format [None]:
 ```
 

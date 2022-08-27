@@ -13,7 +13,7 @@ export const NotificationTestImports = [
   DynamooseModule.forRoot({
     local: 'http://localhost:8001',
     aws: { region: 'local' },
-    model: {
+    table: {
       create: false,
       prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
       suffix: '-table',

@@ -8,14 +8,14 @@ export const NotificationSchema = new Schema({
   targetId: {
     type: String,
     index: {
-      global: true,
+      type: 'global',
       rangeKey: 'status',
     },
   },
   userId: {
     type: String,
     index: {
-      global: true,
+      type: 'global',
       rangeKey: 'status',
     },
   },

@@ -16,7 +16,7 @@ import { NotificationModule } from './notification/notification.module';
     DynamooseModule.forRoot({
       local: process.env.IS_DDB_LOCAL === 'true',
       aws: { region: process.env.REGION },
-      model: {
+      table: {
         create: process.env.IS_DDB_LOCAL === 'true',
         prefix: `${process.env.SERVICE}-${process.env.STAGE}-`,
         suffix: '-table',
