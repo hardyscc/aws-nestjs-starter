@@ -66,7 +66,7 @@ Default region name [us-east-1]:
 Default output format [None]:
 ```
 
-> Please enter your **AWS Access Key ID** and **AWS Secret Access Key**
+> Please enter your **AWS Access Key ID**, **AWS Secret Access Key** and **Default region name**
 
 ## Deployment
 
