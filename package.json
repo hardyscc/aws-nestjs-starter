@@ -29,11 +29,11 @@
   },
   "dependencies": {
     "@graphql-tools/merge": "8.3.11",
-    "@nestjs/apollo": "10.1.4",
+    "@nestjs/apollo": "10.1.6",
     "@nestjs/common": "9.2.0",
     "@nestjs/config": "2.2.0",
     "@nestjs/core": "9.2.0",
-    "@nestjs/graphql": "10.1.5",
+    "@nestjs/graphql": "10.1.6",
     "@nestjs/platform-express": "9.2.0",
     "@vendia/serverless-express": "4.10.1",
     "apollo-server-express": "3.11.1",
