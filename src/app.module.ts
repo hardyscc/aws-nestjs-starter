@@ -3,7 +3,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { DynamooseModule } from 'nestjs-dynamoose';
-import { NotificationModule } from './notification/notification.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { NotificationModule } from './modules/notification/notification.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { NotificationModule } from './notification/notification.module';
       },
     }),
     NotificationModule,
+    AuthenticationModule,
   ],
 })
 export class AppModule {}

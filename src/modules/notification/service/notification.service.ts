@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import * as uuid from 'uuid';
-import { CreateNotificationInput } from '../model/create-notification.input';
+import { CreateNotificationInput } from '../model/createNotification.input';
 import { NotificationStatus } from '../model/notification.enum';
 import { Notification, NotificationKey } from '../model/notification.model';
-import { UpdateNotificationInput } from '../model/update-notification.input';
+import { UpdateNotificationInput } from '../model/updateNotification.input';
 
 @Injectable()
 export class NotificationService {
