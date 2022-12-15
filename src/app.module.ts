@@ -5,10 +5,21 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { DynamooseModule } from 'nestjs-dynamoose';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { NotificationModule } from './modules/notification/notification.module';
+import {SentryModule} from "./modules/sentry/sentry.module";
 
+const envType =
+  process.env.NODE_ENV === 'development' ? 'development' : 'production';
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: [
+        '.env.local',
+        `.env.${envType}.local`,
+        '.env',
+        `.env.${envType}`,
+      ],
+      isGlobal: true,
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
@@ -25,6 +36,7 @@ import { NotificationModule } from './modules/notification/notification.module';
     }),
     NotificationModule,
     AuthenticationModule,
+    SentryModule,
   ],
 })
 export class AppModule {}
