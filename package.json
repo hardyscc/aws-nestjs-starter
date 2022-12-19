@@ -70,7 +70,7 @@
     "eslint": "8.30.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
-    "glob-promise": "5.0.0",
+    "glob-promise": "5.0.1",
     "jest": "29.3.1",
     "js-yaml": "4.1.0",
     "lint-staged": "13.1.0",
