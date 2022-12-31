@@ -57,7 +57,7 @@
     "@shelf/jest-dynamodb": "3.3.1",
     "@types/aws-lambda": "8.10.109",
     "@types/express": "4.17.15",
-    "@types/jest": "29.2.4",
+    "@types/jest": "29.2.5",
     "@types/js-yaml": "4.0.5",
     "@types/node": "16.18.11",
     "@types/serverless": "3.12.9",
