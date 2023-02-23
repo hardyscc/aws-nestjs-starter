@@ -1,5 +1,7 @@
-import { Field, InputType } from '@nestjs/graphql';
 import { IsEnum, IsIn } from 'class-validator';
+
+import { Field, InputType } from '@nestjs/graphql';
+
 import { NotificationStatus } from './notification.enum';
 
 @InputType()

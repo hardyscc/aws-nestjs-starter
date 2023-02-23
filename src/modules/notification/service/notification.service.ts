@@ -1,6 +1,8 @@
-import { Injectable } from '@nestjs/common';
 import { InjectModel, Model } from 'nestjs-dynamoose';
 import * as uuid from 'uuid';
+
+import { Injectable } from '@nestjs/common';
+
 import { CreateNotificationInput } from '../model/create-notification.input';
 import { NotificationStatus } from '../model/notification.enum';
 import { Notification, NotificationKey } from '../model/notification.model';

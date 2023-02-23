@@ -1,5 +1,6 @@
-import { Field, InputType, InterfaceType } from '@nestjs/graphql';
 import { IsNotEmpty, IsString } from 'class-validator';
+
+import { Field, InputType, InterfaceType } from '@nestjs/graphql';
 
 @InputType()
 @InterfaceType('BaseNotification')

@@ -1,4 +1,15 @@
 {
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "all",
   "singleQuote": true,
-  "trailingComma": "all"
+  "semi": true,
+  "importOrder": [
+    "^@nestjs(.*)$",
+    "^@modules/(.*)$",
+    "^[./]"
+  ],
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
