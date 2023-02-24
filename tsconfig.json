@@ -20,7 +20,11 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@modules/*": ["src/modules/*"],
+      "@modules": ["src/modules/index"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

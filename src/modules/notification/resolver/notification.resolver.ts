@@ -1,4 +1,5 @@
 import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
+
 import { CreateNotificationInput } from '../model/create-notification.input';
 import { Notification } from '../model/notification.model';
 import { UpdateNotificationInput } from '../model/update-notification.input';

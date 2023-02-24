@@ -1,5 +1,7 @@
-import { Module } from '@nestjs/common';
 import { DynamooseModule } from 'nestjs-dynamoose';
+
+import { Module } from '@nestjs/common';
+
 import { NotificationController } from './controller/notification.controller';
 import { NotificationResolver } from './resolver/notification.resolver';
 import { NotificationSchema } from './schema/notification.schema';

@@ -1,7 +1,9 @@
+import { DynamooseModule } from 'nestjs-dynamoose';
+
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { DynamooseModule } from 'nestjs-dynamoose';
+
 import { NotificationSchema } from '../schema/notification.schema';
 
 export const NotificationTestImports = [

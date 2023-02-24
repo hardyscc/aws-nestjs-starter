@@ -8,6 +8,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+
 import { CreateNotificationInput } from '../model/create-notification.input';
 import { UpdateNotificationInput } from '../model/update-notification.input';
 import { NotificationService } from '../service/notification.service';
