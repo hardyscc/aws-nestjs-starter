@@ -22,6 +22,13 @@ export class NotificationResolver {
     return this.notificationService.update({ id }, input);
   }
 
+  @Mutation(/* istanbul ignore next */ () => Notification)
+  deleteNotification(
+    @Args('id', { type: /* istanbul ignore next */ () => ID }) id: string,
+  ) {
+    return this.notificationService.delete({ id });
+  }
+
   @Query(/* istanbul ignore next */ () => Notification)
   notification(
     @Args('id', { type: /* istanbul ignore next */ () => ID }) id: string,

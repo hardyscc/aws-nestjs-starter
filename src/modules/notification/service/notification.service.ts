@@ -28,6 +28,10 @@ export class NotificationService {
     return this.model.update(key, input);
   }
 
+  delete(key: NotificationKey) {
+    return this.model.delete(key);
+  }
+
   findOne(key: NotificationKey) {
     return this.model.get(key);
   }
