@@ -5,8 +5,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
-import notificationJson from '../test/notification.data.json';
 import { NotificationController } from './notification.controller';
+import notificationJson from './notification.data.json';
 
 let controller: NotificationController;
 
@@ -70,7 +70,7 @@ describe('Notification Controller', () => {
 
   it('find by userId and targetId (bad request)', async () => {
     try {
-      await controller.find({ targetId: 'device21', userId: 'user21' });
+      await controller.find({ targetId: 'device01', userId: 'user01' });
     } catch (e) {
       expect(e).toMatchObject({ status: 400 });
     }

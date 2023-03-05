@@ -5,7 +5,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
-import notificationJson from '../test/notification.data.json';
+import notificationJson from './notification.data.json';
 import { NotificationResolver } from './notification.resolver';
 
 let resolver: NotificationResolver;
@@ -44,12 +44,12 @@ describe('Notification Resolver', () => {
   it('find by userId or targetId', async () => {
     // test findByUserId and findByTargetId
     expect(await resolver.notificationByUserId('mary')).toHaveLength(0);
-    expect(await resolver.notificationByUserId('user11')).toHaveLength(2);
+    expect(await resolver.notificationByUserId('user21')).toHaveLength(2);
     expect(await resolver.notificationByTargetId('iphone')).toHaveLength(0);
   });
 
   it('update status', async () => {
-    const notifications = await resolver.notificationByTargetId('device11');
+    const notifications = await resolver.notificationByTargetId('device21');
     expect(notifications).toHaveLength(1);
     expect(notifications[0].status).toBe(NotificationStatus.Active);
 
@@ -61,7 +61,7 @@ describe('Notification Resolver', () => {
   });
 
   it('find by id', async () => {
-    const notifications = await resolver.notificationByTargetId('device13');
+    const notifications = await resolver.notificationByTargetId('device23');
     expect(notifications).toHaveLength(1);
 
     const notification = await resolver.notification(notifications[0].id);
