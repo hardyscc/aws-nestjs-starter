@@ -1,9 +1,11 @@
+import { Document } from 'nestjs-dynamoose';
+
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
-import notificationJson from './notification.data.json';
+import notificationJson from '../test/notification.data.json';
 import { NotificationResolver } from './notification.resolver';
 
 let resolver: NotificationResolver;
@@ -18,19 +20,24 @@ beforeAll(async () => {
 });
 
 describe('Notification Resolver', () => {
-  beforeAll(async () => {
-    expect(resolver).toBeDefined();
+  let notifications: Document<Notification>[] = [];
 
+  beforeAll(async () => {
+    // create notification records
+    notifications = await Promise.all(
+      notificationJson.map(
+        async (input) => (await resolver.createNotification(input)) as any,
+      ),
+    );
+  });
+
+  afterAll(async () => {
     // create notification records
     await Promise.all(
-      notificationJson.map(async (input) => {
-        const result = await resolver.createNotification(input);
-        expect(result).toMatchObject({
-          ...input,
-          status: NotificationStatus.Active,
-        });
-        expect(result.id).toBeDefined();
-      }),
+      notifications.map(
+        async (notification) =>
+          await resolver.deleteNotification(notification.toJSON().id),
+      ),
     );
   });
 

@@ -27,6 +27,11 @@ export class NotificationController {
     return this.notificationService.update({ id }, body);
   }
 
+  @Post(':id')
+  delete(@Param('id') id: string) {
+    return this.notificationService.delete({ id });
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.notificationService.findOne({ id });
