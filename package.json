@@ -30,11 +30,11 @@
   "dependencies": {
     "@graphql-tools/merge": "8.4.0",
     "@nestjs/apollo": "10.2.0",
-    "@nestjs/common": "9.3.11",
+    "@nestjs/common": "9.3.12",
     "@nestjs/config": "2.3.1",
-    "@nestjs/core": "9.3.11",
+    "@nestjs/core": "9.3.12",
     "@nestjs/graphql": "10.2.0",
-    "@nestjs/platform-express": "9.3.11",
+    "@nestjs/platform-express": "9.3.12",
     "@vendia/serverless-express": "4.10.1",
     "apollo-server-express": "3.12.0",
     "class-transformer": "0.5.1",
@@ -49,11 +49,11 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@nestjs/cli": "9.3.0",
     "@nestjs/schematics": "9.0.4",
-    "@nestjs/testing": "9.3.11",
+    "@nestjs/testing": "9.3.12",
     "@shelf/jest-dynamodb": "3.4.1",
     "@trivago/prettier-plugin-sort-imports": "4.1.1",
     "@types/aws-lambda": "8.10.114",
