@@ -52,7 +52,7 @@
     "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@nestjs/cli": "9.3.0",
-    "@nestjs/schematics": "9.0.4",
+    "@nestjs/schematics": "9.1.0",
     "@nestjs/testing": "9.3.12",
     "@shelf/jest-dynamodb": "3.4.1",
     "@trivago/prettier-plugin-sort-imports": "4.1.1",
