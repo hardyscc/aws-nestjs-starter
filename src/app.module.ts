@@ -1,10 +1,11 @@
-import { NotificationModule } from '@modules';
 import { DynamooseModule } from 'nestjs-dynamoose';
 
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
+
+import { NotificationModule } from './modules/notification/notification.module';
 
 @Module({
   imports: [
