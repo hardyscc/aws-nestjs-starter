@@ -1,4 +1,4 @@
-import { Document } from 'nestjs-dynamoose';
+import { Item } from 'nestjs-dynamoose';
 
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -20,7 +20,7 @@ beforeAll(async () => {
 });
 
 describe('Notification Resolver', () => {
-  let notifications: Document<Notification>[] = [];
+  let notifications: Item<Notification>[] = [];
 
   beforeAll(async () => {
     // create notification records

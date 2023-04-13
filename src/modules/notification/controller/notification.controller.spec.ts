@@ -1,4 +1,4 @@
-import { Document } from 'nestjs-dynamoose';
+import { Item } from 'nestjs-dynamoose';
 
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -21,7 +21,7 @@ beforeAll(async () => {
 });
 
 describe('Notification Controller', () => {
-  let notifications: Document<Notification>[] = [];
+  let notifications: Item<Notification>[] = [];
 
   beforeAll(async () => {
     notifications = await Promise.all(
