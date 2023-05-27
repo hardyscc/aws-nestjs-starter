@@ -34,4 +34,10 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect([]);
   });
+
+  it('/notification (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/notification/dummyid')
+      .expect(404);
+  });
 });

@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   Get,
+  NotFoundException,
   Param,
   Patch,
   Post,
@@ -33,8 +34,12 @@ export class NotificationController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.notificationService.findOne({ id });
+  async findOne(@Param('id') id: string) {
+    const noti = await this.notificationService.findOne({ id });
+    if (!noti) {
+      throw new NotFoundException();
+    }
+    return noti;
   }
 
   @Get()

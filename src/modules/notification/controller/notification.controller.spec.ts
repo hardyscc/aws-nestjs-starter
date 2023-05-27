@@ -68,19 +68,33 @@ describe('Notification Controller', () => {
     expect(notification.id).toBe(notifications[0].id);
   });
 
+  it('find by id (not found)', async () => {
+    let error = null;
+    try {
+      await controller.findOne('dummyid');
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toMatchObject({ status: 404 });
+  });
+
   it('find by userId and targetId (bad request)', async () => {
+    let error = null;
     try {
       await controller.find({ targetId: 'device01', userId: 'user01' });
     } catch (e) {
-      expect(e).toMatchObject({ status: 400 });
+      error = e;
     }
+    expect(error).toMatchObject({ status: 400 });
   });
 
   it('find all (bad request)', async () => {
+    let error = null;
     try {
       await controller.find({});
     } catch (e) {
-      expect(e).toMatchObject({ status: 400 });
+      error = e;
     }
+    expect(error).toMatchObject({ status: 400 });
   });
 });
