@@ -76,7 +76,7 @@
     "js-yaml": "4.1.0",
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
-    "serverless": "3.32.0",
+    "serverless": "3.32.1",
     "serverless-dynamodb-local": "0.2.40",
     "serverless-offline": "12.0.4",
     "serverless-plugin-typescript": "2.1.4",
@@ -85,7 +85,7 @@
     "ts-loader": "9.4.3",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   },
   "jest": {
     "preset": "@shelf/jest-dynamodb",
