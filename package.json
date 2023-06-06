@@ -28,7 +28,7 @@
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
-    "@apollo/server": "4.7.1",
+    "@apollo/server": "4.7.2",
     "@graphql-tools/merge": "8.4.2",
     "@nestjs/apollo": "11.0.6",
     "@nestjs/common": "9.4.2",
@@ -56,7 +56,7 @@
     "@nestjs/testing": "9.4.2",
     "@shelf/jest-dynamodb": "3.4.1",
     "@trivago/prettier-plugin-sort-imports": "4.1.1",
-    "@types/aws-lambda": "8.10.115",
+    "@types/aws-lambda": "8.10.116",
     "@types/express": "4.17.17",
     "@types/jest": "29.5.2",
     "@types/js-yaml": "4.0.5",
@@ -64,8 +64,8 @@
     "@types/serverless": "3.12.12",
     "@types/supertest": "2.0.12",
     "@types/uuid": "9.0.1",
-    "@typescript-eslint/eslint-plugin": "5.59.8",
-    "@typescript-eslint/parser": "5.59.8",
+    "@typescript-eslint/eslint-plugin": "5.59.9",
+    "@typescript-eslint/parser": "5.59.9",
     "change-case": "4.1.2",
     "cross-env": "7.0.3",
     "eslint": "8.42.0",
