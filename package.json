@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.6.6",
     "@commitlint/config-conventional": "17.6.6",
-    "@nestjs/cli": "10.0.5",
+    "@nestjs/cli": "10.1.0",
     "@nestjs/schematics": "10.0.1",
     "@nestjs/testing": "10.0.4",
     "@shelf/jest-dynamodb": "3.4.1",
@@ -81,7 +81,7 @@
     "serverless-offline": "12.0.4",
     "serverless-plugin-typescript": "2.1.5",
     "supertest": "6.3.3",
-    "ts-jest": "29.1.0",
+    "ts-jest": "29.1.1",
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
