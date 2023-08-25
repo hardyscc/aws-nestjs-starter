@@ -28,7 +28,7 @@
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
-    "@apollo/server": "4.9.1",
+    "@apollo/server": "4.9.2",
     "@graphql-tools/merge": "9.0.0",
     "@nestjs/apollo": "12.0.7",
     "@nestjs/common": "10.2.1",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@nestjs/cli": "10.1.14",
+    "@nestjs/cli": "10.1.15",
     "@nestjs/schematics": "10.0.2",
     "@nestjs/testing": "10.2.1",
     "@shelf/jest-dynamodb": "3.4.2",
@@ -60,7 +60,7 @@
     "@types/express": "4.17.17",
     "@types/jest": "29.5.4",
     "@types/js-yaml": "4.0.5",
-    "@types/node": "16.18.44",
+    "@types/node": "16.18.46",
     "@types/serverless": "3.12.14",
     "@types/supertest": "2.0.12",
     "@types/uuid": "9.0.2",
@@ -72,7 +72,7 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.28.1",
     "glob-promise": "6.0.3",
-    "jest": "29.6.3",
+    "jest": "29.6.4",
     "js-yaml": "4.1.0",
     "lint-staged": "14.0.1",
     "prettier": "3.0.2",
@@ -85,7 +85,7 @@
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   },
   "jest": {
     "preset": "@shelf/jest-dynamodb",
