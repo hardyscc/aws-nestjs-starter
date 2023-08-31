@@ -32,7 +32,7 @@
     "@graphql-tools/merge": "9.0.0",
     "@nestjs/apollo": "12.0.7",
     "@nestjs/common": "10.2.3",
-    "@nestjs/config": "3.0.0",
+    "@nestjs/config": "3.0.1",
     "@nestjs/core": "10.2.3",
     "@nestjs/graphql": "12.0.8",
     "@nestjs/platform-express": "10.2.3",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@nestjs/cli": "10.1.16",
+    "@nestjs/cli": "10.1.17",
     "@nestjs/schematics": "10.0.2",
     "@nestjs/testing": "10.2.3",
     "@shelf/jest-dynamodb": "3.4.2",
