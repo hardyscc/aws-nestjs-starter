@@ -71,7 +71,7 @@
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.28.1",
-    "glob-promise": "6.0.3",
+    "glob-promise": "6.0.5",
     "jest": "29.6.4",
     "js-yaml": "4.1.0",
     "lint-staged": "14.0.1",
