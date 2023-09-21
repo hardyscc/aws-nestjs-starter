@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@nestjs/cli": "10.1.17",
+    "@nestjs/cli": "10.1.18",
     "@nestjs/schematics": "10.0.2",
     "@nestjs/testing": "10.2.5",
     "@shelf/jest-dynamodb": "3.4.2",
