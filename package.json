@@ -49,8 +49,8 @@
     "uuid": "9.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.8.0",
-    "@commitlint/config-conventional": "17.8.0",
+    "@commitlint/cli": "17.8.1",
+    "@commitlint/config-conventional": "17.8.1",
     "@nestjs/cli": "10.1.18",
     "@nestjs/schematics": "10.0.2",
     "@nestjs/testing": "10.2.7",
