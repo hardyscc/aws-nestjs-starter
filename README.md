@@ -32,8 +32,6 @@ cd <Your_Project_Name>
 npm install
 ```
 
-> Currently, the development dependency `serverless-dynamodb-local` requires Node.js version 16 or lower to function properly.
-
 After that find and replace `aws-nestjs-starter` to your project name on the following files:
 
 - package.json
