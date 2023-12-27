@@ -62,7 +62,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/node": "20.10.4",
     "@types/serverless": "3.12.19",
-    "@types/supertest": "2.0.16",
+    "@types/supertest": "6.0.2",
     "@types/uuid": "9.0.7",
     "@typescript-eslint/eslint-plugin": "6.14.0",
     "@typescript-eslint/parser": "6.14.0",
