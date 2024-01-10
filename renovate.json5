@@ -8,4 +8,5 @@
     ':maintainLockFilesWeekly', // regenerates lock file to update all indirect deps
   ],
   transitiveRemediation: true, // apply security updates for indirect (transitive) NPM dependencies
+  automerge: true,
 }
