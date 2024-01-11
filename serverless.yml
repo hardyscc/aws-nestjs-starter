@@ -10,6 +10,7 @@ provider:
     STAGE: ${self:provider.stage}
     REGION: ${self:provider.region}
     NO_COLOR: ${env:NO_COLOR, 'true'}
+    IS_DDB_LOCAL: ${env:IS_DDB_LOCAL, 'false'}
   apiGateway:
     shouldStartNameWithService: true
   iam:
