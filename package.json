@@ -38,7 +38,7 @@
     "@nestjs/platform-express": "10.3.0",
     "@vendia/serverless-express": "4.12.6",
     "class-transformer": "0.5.1",
-    "class-validator": "0.14.0",
+    "class-validator": "0.14.1",
     "dynamoose": "4.0.0",
     "graphql": "16.8.1",
     "husky": "8.0.3",
