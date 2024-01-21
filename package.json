@@ -60,7 +60,7 @@
     "@types/express": "4.17.21",
     "@types/jest": "29.5.11",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.11.4",
+    "@types/node": "20.11.5",
     "@types/serverless": "3.12.20",
     "@types/supertest": "6.0.2",
     "@types/uuid": "9.0.7",
