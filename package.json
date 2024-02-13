@@ -42,7 +42,7 @@
     "dynamoose": "4.0.0",
     "graphql": "16.8.1",
     "husky": "8.0.3",
-    "nestjs-dynamoose": "0.5.7",
+    "nestjs-dynamoose": "0.5.8",
     "reflect-metadata": "0.1.14",
     "rimraf": "5.0.5",
     "rxjs": "7.8.1",
