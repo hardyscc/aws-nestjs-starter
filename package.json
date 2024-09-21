@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "7.18.0",
     "change-case": "5.4.4",
     "cross-env": "7.0.3",
-    "eslint": "8.57.0",
+    "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.30.0",
     "glob-promise": "6.0.7",
