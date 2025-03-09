@@ -80,7 +80,7 @@
     "serverless-dynamodb-local": "0.2.40",
     "serverless-offline": "13.9.0",
     "serverless-plugin-typescript": "2.1.5",
-    "supertest": "6.3.4",
+    "supertest": "7.0.0",
     "ts-jest": "29.2.6",
     "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
