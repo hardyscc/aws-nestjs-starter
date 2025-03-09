@@ -44,7 +44,7 @@
     "husky": "9.1.7",
     "nestjs-dynamoose": "0.6.0",
     "reflect-metadata": "0.2.2",
-    "rimraf": "5.0.10",
+    "rimraf": "6.0.1",
     "rxjs": "7.8.2",
     "uuid": "11.1.0"
   },
