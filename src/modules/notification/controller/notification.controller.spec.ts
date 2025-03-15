@@ -6,7 +6,24 @@ import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
 import { NotificationController } from './notification.controller';
-import notificationJson from './notification.data.json';
+
+const notificationJson = [
+  {
+    targetId: 'device11',
+    userId: 'user11',
+    content: 'Hello',
+  },
+  {
+    targetId: 'device12',
+    userId: 'user11',
+    content: 'Hello',
+  },
+  {
+    targetId: 'device13',
+    userId: 'user12',
+    content: 'Hello',
+  },
+];
 
 let controller: NotificationController;
 

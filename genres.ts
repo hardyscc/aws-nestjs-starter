@@ -1,4 +1,3 @@
-import { pascalCase } from 'change-case';
 import * as dynamoose from 'dynamoose';
 import { Schema } from 'dynamoose/dist/Schema';
 import { TableOptionsOptional } from 'dynamoose/dist/Table';
@@ -69,6 +68,18 @@ async function main() {
   await fs.promises.writeFile(outputFile, yamlReources);
   console.log(`Serverless resources file generated at ${outputFile}`);
   process.exit(0);
+}
+
+function pascalCase(input: string): string {
+  // Replace any non-alphanumeric characters with a space.
+  // Then split the string into words, filter out any empty words,
+  // and convert each word to have an uppercase first letter followed by lowercase letters.
+  return input
+    .replace(/([^\w]|_)+/g, ' ')
+    .split(' ')
+    .filter((word) => word.trim().length > 0)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
 }
 
 main();

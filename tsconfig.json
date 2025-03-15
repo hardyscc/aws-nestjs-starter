@@ -5,26 +5,22 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "paths": {
-      "@modules/*": ["src/modules/*"],
-      "@modules": ["src/modules/index"]
-    }
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    // required for `sls package`
+    "tsBuildInfoFile": ".tsbuildinfo",
+    // required for serverlessExpress & express import
+    "esModuleInterop": true
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

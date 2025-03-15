@@ -5,8 +5,25 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NotificationStatus } from '../model/notification.enum';
 import { NotificationService } from '../service/notification.service';
 import { NotificationTestImports } from '../test/notification-test.imports';
-import notificationJson from './notification.data.json';
 import { NotificationResolver } from './notification.resolver';
+
+const notificationJson = [
+  {
+    targetId: 'device21',
+    userId: 'user21',
+    content: 'Hello',
+  },
+  {
+    targetId: 'device22',
+    userId: 'user21',
+    content: 'Hello',
+  },
+  {
+    targetId: 'device23',
+    userId: 'user22',
+    content: 'Hello',
+  },
+];
 
 let resolver: NotificationResolver;
 
