@@ -23,7 +23,7 @@ jobs:
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18.20.7
           cache: 'npm'
       # use old version of @nestjs/platform-express, 
       # remove --legacy-peer-deps once express is upgraded to v5
