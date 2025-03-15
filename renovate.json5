@@ -1,12 +1,11 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json', // up to date schema with all supported properties
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-    'config:js-app', // base on the recommended config for JS applications
-    'schedule:weekends', // can be schedule:weekly, schedule:weekends, etc
-    'npm:unpublishSafe', // the release must be at least 3 days old
-    ':approveMajorUpdates', // require explicit update approval on the dashboard before opening PR
-    ':maintainLockFilesWeekly', // regenerates lock file to update all indirect deps
+    'config:js-app',
+    'schedule:weekends',
+    'npm:unpublishSafe',
+    ':approveMajorUpdates',
+    ':maintainLockFilesWeekly',
   ],
-  transitiveRemediation: true, // apply security updates for indirect (transitive) NPM dependencies
   automerge: true,
 }
