@@ -42,6 +42,9 @@ custom:
       migrate: true
       seed: false
 
+package:
+  individually: true
+
 functions:
   index-function:
     handler: src/index.handler
