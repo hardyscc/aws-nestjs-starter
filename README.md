@@ -197,21 +197,21 @@ mutation {
 
 > Please remove `/dev` from path if test using local nestjs mode
 
-```
+```sh
 curl -X POST 'http://localhost:3000/dev/notification' \
   -H 'Content-Type: application/json' \
   --data-raw '{ "targetId": "device1", "userId": "user1", "content": "Hello" }'
 ```
 
-```
+```sh
 curl -X GET 'http://localhost:3000/dev/notification?targetId=device1'
 ```
 
-```
+```sh
 curl -X GET 'http://localhost:3000/dev/notification?userId=user1'
 ```
 
-```
+```sh
 curl -X PATCH 'http://localhost:3000/dev/notification/a30f7101-2434-4443-87fa-493c9d9d3358' \
   -H 'Content-Type: application/json' \
   --data-raw '{ "status": "Deleted" }'

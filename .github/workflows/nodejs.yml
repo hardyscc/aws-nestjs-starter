@@ -25,9 +25,7 @@ jobs:
         with:
           node-version: 18.20.7
           cache: 'npm'
-      # use old version of @nestjs/platform-express, 
-      # remove --legacy-peer-deps once express is upgraded to v5
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci 
       - run: npm run lint
       - run: npm run build --if-present
       - run: npm run test:cov
