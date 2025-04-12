@@ -39,7 +39,7 @@
     "@vendia/serverless-express": "4.12.6",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
-    "dynamoose": "4.0.3",
+    "dynamoose": "4.0.4",
     "express": "5.1.0",
     "graphql": "16.10.0",
     "nestjs-dynamoose": "0.6.0",
