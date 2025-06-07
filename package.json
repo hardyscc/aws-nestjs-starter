@@ -28,7 +28,7 @@
     "genres": "ts-node genres.ts -- \"src/**/*.schema.ts\" \"resource/dynamodb.yml\""
   },
   "dependencies": {
-    "@apollo/server": "4.12.1",
+    "@apollo/server": "4.12.2",
     "@graphql-tools/merge": "9.0.24",
     "@nestjs/apollo": "13.1.0",
     "@nestjs/common": "11.1.2",
