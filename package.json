@@ -51,8 +51,8 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@nestjs/cli": "11.0.9",
-    "@nestjs/schematics": "11.0.6",
+    "@nestjs/cli": "11.0.10",
+    "@nestjs/schematics": "11.0.7",
     "@nestjs/testing": "11.1.5",
     "@shelf/jest-dynamodb": "3.5.0",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
