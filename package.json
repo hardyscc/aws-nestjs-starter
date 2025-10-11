@@ -56,7 +56,7 @@
     "@nestjs/testing": "11.1.6",
     "@shelf/jest-dynamodb": "3.5.0",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
-    "@types/aws-lambda": "8.10.153",
+    "@types/aws-lambda": "8.10.155",
     "@types/express": "5.0.3",
     "@types/jest": "29.5.14",
     "@types/js-yaml": "4.0.9",
