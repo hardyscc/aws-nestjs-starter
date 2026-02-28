@@ -41,7 +41,7 @@
     "class-validator": "0.14.3",
     "dynamoose": "4.1.5",
     "express": "5.2.1",
-    "graphql": "16.12.0",
+    "graphql": "16.13.0",
     "nestjs-dynamoose": "0.6.0",
     "reflect-metadata": "0.2.2",
     "rimraf": "6.1.3",
