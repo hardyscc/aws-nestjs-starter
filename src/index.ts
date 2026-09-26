@@ -16,7 +16,7 @@ const bootstrapServer = async (): Promise<Handler> => {
     AppModule,
     new ExpressAdapter(expressApp),
   );
-  app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: true }));
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidUnknownValues: true }));
   app.enableCors();
   await app.init();
   return serverlessExpress({
